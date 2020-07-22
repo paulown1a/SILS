@@ -93,11 +93,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="packages.config" />
     <EntityDeploy Include="SILS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SILS.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="packages.config" />
     <None Include="SILS.edmx.diagram">
       <DependentUpon>SILS.edmx</DependentUpon>
     </None>
