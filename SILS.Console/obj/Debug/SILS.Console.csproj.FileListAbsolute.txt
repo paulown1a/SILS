@@ -1,0 +1,7 @@
+C:\git\SILS\SILS.Console\bin\Debug\SILS.Console.exe.config
+C:\git\SILS\SILS.Console\bin\Debug\SILS.Console.exe
+C:\git\SILS\SILS.Console\bin\Debug\SILS.Console.pdb
+C:\git\SILS\SILS.Console\obj\Debug\SILS.Console.csprojAssemblyReference.cache
+C:\git\SILS\SILS.Console\obj\Debug\SILS.Console.csproj.CoreCompileInputs.cache
+C:\git\SILS\SILS.Console\obj\Debug\SILS.Console.exe
+C:\git\SILS\SILS.Console\obj\Debug\SILS.Console.pdb

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="97e5364ea86e433bbff5f1f7c9da05c7" Name="Diagram1">
+        <EntityTypeShape EntityType="SILSModel.Book" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SILSModel.Code" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SILSModel.HoldingStatu" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SILSModel.Library" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="SILSModel.FK_Book_Code" ManuallyRouted="false" />
+        <AssociationConnector Association="SILSModel.FK_HoldingStatus_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="SILSModel.FK_Code_Code" ManuallyRouted="false" />
+        <AssociationConnector Association="SILSModel.FK_Library_Code" ManuallyRouted="false" />
+        <AssociationConnector Association="SILSModel.FK_HoldingStatus_Library" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

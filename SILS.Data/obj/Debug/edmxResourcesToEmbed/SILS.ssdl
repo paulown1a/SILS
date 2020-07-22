@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SILSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Author" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PublicationDate" Type="date" Nullable="false" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ISBN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KDCId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Picture" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Code">
+    <Key>
+      <PropertyRef Name="CodeId" />
+    </Key>
+    <Property Name="CodeId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpperclassId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HoldingStatus">
+    <Key>
+      <PropertyRef Name="LibraryId" />
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="LibraryId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookId" Type="int" Nullable="false" />
+    <Property Name="Count" Type="int" />
+    <Property Name="ReceiptDate" Type="date" />
+    <Property Name="Classification" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Library">
+    <Key>
+      <PropertyRef Name="LibraryId" />
+    </Key>
+    <Property Name="LibraryId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LocationId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Website" Type="nvarchar" MaxLength="1000" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Book_Code">
+    <End Role="Code" Type="Self.Code" Multiplicity="1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Code">
+        <PropertyRef Name="CodeId" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="KDCId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Code_Code">
+    <End Role="Code" Type="Self.Code" Multiplicity="0..1" />
+    <End Role="Code1" Type="Self.Code" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Code">
+        <PropertyRef Name="CodeId" />
+      </Principal>
+      <Dependent Role="Code1">
+        <PropertyRef Name="UpperclassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoldingStatus_Book">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="HoldingStatus" Type="Self.HoldingStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="BookId" />
+      </Principal>
+      <Dependent Role="HoldingStatus">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoldingStatus_Library">
+    <End Role="Library" Type="Self.Library" Multiplicity="1" />
+    <End Role="HoldingStatus" Type="Self.HoldingStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Library">
+        <PropertyRef Name="LibraryId" />
+      </Principal>
+      <Dependent Role="HoldingStatus">
+        <PropertyRef Name="LibraryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Library_Code">
+    <End Role="Code" Type="Self.Code" Multiplicity="1" />
+    <End Role="Library" Type="Self.Library" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Code">
+        <PropertyRef Name="CodeId" />
+      </Principal>
+      <Dependent Role="Library">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SILSModelStoreContainer">
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Code" EntityType="Self.Code" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoldingStatus" EntityType="Self.HoldingStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Library" EntityType="Self.Library" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Book_Code" Association="Self.FK_Book_Code">
+      <End Role="Code" EntitySet="Code" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Code_Code" Association="Self.FK_Code_Code">
+      <End Role="Code" EntitySet="Code" />
+      <End Role="Code1" EntitySet="Code" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoldingStatus_Book" Association="Self.FK_HoldingStatus_Book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="HoldingStatus" EntitySet="HoldingStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoldingStatus_Library" Association="Self.FK_HoldingStatus_Library">
+      <End Role="Library" EntitySet="Library" />
+      <End Role="HoldingStatus" EntitySet="HoldingStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Library_Code" Association="Self.FK_Library_Code">
+      <End Role="Code" EntitySet="Code" />
+      <End Role="Library" EntitySet="Library" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

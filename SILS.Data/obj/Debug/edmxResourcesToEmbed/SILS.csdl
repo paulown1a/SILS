@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SILSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PublicationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KDCId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Code" Relationship="Self.FK_Book_Code" FromRole="Book" ToRole="Code" />
+    <NavigationProperty Name="HoldingStatus" Relationship="Self.FK_HoldingStatus_Book" FromRole="Book" ToRole="HoldingStatus" />
+  </EntityType>
+  <EntityType Name="Code">
+    <Key>
+      <PropertyRef Name="CodeId" />
+    </Key>
+    <Property Name="CodeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpperclassId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Books" Relationship="Self.FK_Book_Code" FromRole="Code" ToRole="Book" />
+    <NavigationProperty Name="Code1" Relationship="Self.FK_Code_Code" FromRole="Code" ToRole="Code1" />
+    <NavigationProperty Name="Code2" Relationship="Self.FK_Code_Code" FromRole="Code1" ToRole="Code" />
+    <NavigationProperty Name="Libraries" Relationship="Self.FK_Library_Code" FromRole="Code" ToRole="Library" />
+  </EntityType>
+  <EntityType Name="HoldingStatu">
+    <Key>
+      <PropertyRef Name="LibraryId" />
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="LibraryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookId" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" />
+    <Property Name="ReceiptDate" Type="DateTime" Precision="0" />
+    <Property Name="Classification" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="Self.FK_HoldingStatus_Book" FromRole="HoldingStatus" ToRole="Book" />
+    <NavigationProperty Name="Library" Relationship="Self.FK_HoldingStatus_Library" FromRole="HoldingStatus" ToRole="Library" />
+  </EntityType>
+  <EntityType Name="Library">
+    <Key>
+      <PropertyRef Name="LibraryId" />
+    </Key>
+    <Property Name="LibraryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LocationId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Code" Relationship="Self.FK_Library_Code" FromRole="Library" ToRole="Code" />
+    <NavigationProperty Name="HoldingStatus" Relationship="Self.FK_HoldingStatus_Library" FromRole="Library" ToRole="HoldingStatus" />
+  </EntityType>
+  <Association Name="FK_Book_Code">
+    <End Role="Code" Type="Self.Code" Multiplicity="1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Code">
+        <PropertyRef Name="CodeId" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="KDCId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoldingStatus_Book">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="HoldingStatus" Type="Self.HoldingStatu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="BookId" />
+      </Principal>
+      <Dependent Role="HoldingStatus">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Code_Code">
+    <End Role="Code" Type="Self.Code" Multiplicity="0..1" />
+    <End Role="Code1" Type="Self.Code" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Code">
+        <PropertyRef Name="CodeId" />
+      </Principal>
+      <Dependent Role="Code1">
+        <PropertyRef Name="UpperclassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Library_Code">
+    <End Role="Code" Type="Self.Code" Multiplicity="1" />
+    <End Role="Library" Type="Self.Library" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Code">
+        <PropertyRef Name="CodeId" />
+      </Principal>
+      <Dependent Role="Library">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoldingStatus_Library">
+    <End Role="Library" Type="Self.Library" Multiplicity="1" />
+    <End Role="HoldingStatus" Type="Self.HoldingStatu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Library">
+        <PropertyRef Name="LibraryId" />
+      </Principal>
+      <Dependent Role="HoldingStatus">
+        <PropertyRef Name="LibraryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SILSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="Codes" EntityType="Self.Code" />
+    <EntitySet Name="HoldingStatus" EntityType="Self.HoldingStatu" />
+    <EntitySet Name="Libraries" EntityType="Self.Library" />
+    <AssociationSet Name="FK_Book_Code" Association="Self.FK_Book_Code">
+      <End Role="Code" EntitySet="Codes" />
+      <End Role="Book" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoldingStatus_Book" Association="Self.FK_HoldingStatus_Book">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="HoldingStatus" EntitySet="HoldingStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Code_Code" Association="Self.FK_Code_Code">
+      <End Role="Code" EntitySet="Codes" />
+      <End Role="Code1" EntitySet="Codes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Library_Code" Association="Self.FK_Library_Code">
+      <End Role="Code" EntitySet="Codes" />
+      <End Role="Library" EntitySet="Libraries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoldingStatus_Library" Association="Self.FK_HoldingStatus_Library">
+      <End Role="Library" EntitySet="Libraries" />
+      <End Role="HoldingStatus" EntitySet="HoldingStatus" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -37,6 +37,9 @@
 *.hex
 
 # Debug files
+*.vs/
+*.obj/
+*.bin/
 *.dSYM/
 *.su
 *.idb
