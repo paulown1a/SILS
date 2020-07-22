@@ -12,7 +12,7 @@ namespace SILS.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class HoldingStatu
+    public partial class HoldingList
     {
         public string LibraryId { get; set; }
         public int BookId { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SILS.Data
 {
-    public partial class HoldingStatu
+    public partial class HoldingList
     {
     }
 }

@@ -17,7 +17,7 @@ namespace SILS.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Library()
         {
-            this.HoldingStatus = new HashSet<HoldingStatu>();
+            this.HoldingLists = new HashSet<HoldingList>();
         }
     
         public string LibraryId { get; set; }
@@ -29,6 +29,6 @@ namespace SILS.Data
     
         public virtual Code Code { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoldingStatu> HoldingStatus { get; set; }
+        public virtual ICollection<HoldingList> HoldingLists { get; set; }
     }
 }

@@ -61,14 +61,14 @@
     </Compile>
     <Compile Include="Entities\Library.cs" />
     <Compile Include="Entities\Code.cs" />
-    <Compile Include="Entities\HoldingStatu.cs" />
+    <Compile Include="Entities\HoldingList.cs" />
     <Compile Include="Entities\Book.cs" />
     <Compile Include="Data\BookData.cs" />
     <Compile Include="Data\CodeData.cs" />
     <Compile Include="Data\EntityData.cs" />
-    <Compile Include="Data\HoldingStatuData.cs" />
+    <Compile Include="Data\HoldingListData.cs" />
     <Compile Include="Data\LibraryData.cs" />
-    <Compile Include="HoldingStatu.cs">
+    <Compile Include="HoldingList.cs">
       <DependentUpon>SILS.tt</DependentUpon>
     </Compile>
     <Compile Include="Library.cs">
