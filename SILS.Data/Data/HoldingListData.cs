@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SILS.Data
 {
-    public class HoldingListData : EntityData<HoldingStatu>
+    public class HoldingListData : EntityData<HoldingList>
     {
         public HoldingList Get(string libraryId, int bookId)
         {
