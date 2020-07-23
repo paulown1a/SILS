@@ -1,6 +1,4 @@
-﻿using SILS.Winform.Controls;
-
-namespace SILS.Winform
+﻿namespace SILS.Winform
 {
     partial class SearchedForm
     {
@@ -36,7 +34,6 @@ namespace SILS.Winform
             this.layoutView1 = new DevExpress.XtraGrid.Views.Layout.LayoutView();
             this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
             this.btnSearch2 = new DevExpress.XtraEditors.SimpleButton();
-            this.tbxSearch2 = new TextBoxEx("도서 검색");
             ((System.ComponentModel.ISupportInitialize)(this.pnSearch)).BeginInit();
             this.pnSearch.SuspendLayout();
             this.pnDetailSearch.SuspendLayout();
@@ -49,7 +46,6 @@ namespace SILS.Winform
             // 
             this.pnSearch.Controls.Add(this.pnDetailSearch);
             this.pnSearch.Controls.Add(this.btnSearch2);
-            this.pnSearch.Controls.Add(this.tbxSearch2);
             this.pnSearch.Location = new System.Drawing.Point(59, 30);
             this.pnSearch.Name = "pnSearch";
             this.pnSearch.Size = new System.Drawing.Size(999, 597);
@@ -100,21 +96,7 @@ namespace SILS.Winform
             this.btnSearch2.Size = new System.Drawing.Size(95, 39);
             this.btnSearch2.TabIndex = 1;
             this.btnSearch2.Text = "Search";
-            // 
-            // tbxSearch2
-            // 
-            this.tbxSearch2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.tbxSearch2.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxSearch2.Location = new System.Drawing.Point(167, 19);
-            this.tbxSearch2.Multiline = true;
-            this.tbxSearch2.Name = "tbxSearch2";
-            this.tbxSearch2.Size = new System.Drawing.Size(521, 39);
-            this.tbxSearch2.TabIndex = 0;
-            this.tbxSearch2.Text = "도서 검색";
-            this.tbxSearch2.TextChanged += new System.EventHandler(this.tbxSearch2_TextChanged);
-            // 
-            // SearchedForm
-            // 
+          
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 660);
@@ -140,6 +122,5 @@ namespace SILS.Winform
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Layout.LayoutView layoutView1;
         private DevExpress.XtraGrid.Views.Layout.LayoutViewCard layoutViewCard1;
-        private TextBoxEx tbxSearch2;
     }
 }

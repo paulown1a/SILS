@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SILS.Console", "SILS.Consol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SILS.Winform", "SILS.Winform\SILS.Winform.csproj", "{A3A85A01-1A24-45DB-A0FC-3500415DE491}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEst", "TEst\TEst.csproj", "{6A9B7989-FBA7-4D12-ACA1-3402AAB632CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SILS.DataTests", "SILS.DataTests\SILS.DataTests.csproj", "{45748C6E-F6D3-4092-8773-66F09ABF2732}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{A3A85A01-1A24-45DB-A0FC-3500415DE491}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3A85A01-1A24-45DB-A0FC-3500415DE491}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3A85A01-1A24-45DB-A0FC-3500415DE491}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6A9B7989-FBA7-4D12-ACA1-3402AAB632CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A9B7989-FBA7-4D12-ACA1-3402AAB632CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A9B7989-FBA7-4D12-ACA1-3402AAB632CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A9B7989-FBA7-4D12-ACA1-3402AAB632CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45748C6E-F6D3-4092-8773-66F09ABF2732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45748C6E-F6D3-4092-8773-66F09ABF2732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45748C6E-F6D3-4092-8773-66F09ABF2732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45748C6E-F6D3-4092-8773-66F09ABF2732}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

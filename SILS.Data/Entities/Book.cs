@@ -8,5 +8,7 @@ namespace SILS.Data
 {
     public partial class Book
     {
+
+
     }
 }
