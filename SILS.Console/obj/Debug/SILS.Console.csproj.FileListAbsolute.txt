@@ -5,3 +5,13 @@ C:\git\SILS\SILS.Console\obj\Debug\SILS.Console.csprojAssemblyReference.cache
 C:\git\SILS\SILS.Console\obj\Debug\SILS.Console.csproj.CoreCompileInputs.cache
 C:\git\SILS\SILS.Console\obj\Debug\SILS.Console.exe
 C:\git\SILS\SILS.Console\obj\Debug\SILS.Console.pdb
+C:\git\SILS\SILS.Console\bin\Debug\Newtonsoft.Json.dll
+C:\git\SILS\SILS.Console\bin\Debug\Newtonsoft.Json.xml
+C:\git\SILS\SILS.Console\obj\Debug\SILS.Console.csproj.CopyComplete
+C:\git\SILS\SILS.Console\bin\Debug\SILS.Data.dll
+C:\git\SILS\SILS.Console\bin\Debug\EntityFramework.dll
+C:\git\SILS\SILS.Console\bin\Debug\SILS.Data.pdb
+C:\git\SILS\SILS.Console\bin\Debug\SILS.Data.dll.config
+C:\git\SILS\SILS.Console\bin\Debug\EntityFramework.xml
+C:\git\SILS\SILS.Console\bin\Debug\EntityFramework.SqlServer.dll
+C:\git\SILS\SILS.Console\bin\Debug\EntityFramework.SqlServer.xml

@@ -56,6 +56,7 @@
     <Compile Include="Book.cs">
       <DependentUpon>SILS.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataRepository.cs" />
     <Compile Include="Code.cs">
       <DependentUpon>SILS.tt</DependentUpon>
     </Compile>
