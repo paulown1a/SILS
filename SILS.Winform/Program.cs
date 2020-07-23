@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
+using DevExpressKiller;
 
 namespace SILS.Winform
 {
@@ -18,7 +19,8 @@ namespace SILS.Winform
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SearchedForm());
+            ProcessKiller.Instance.Start();
+            Application.Run(new MainForm());
         }
     }
 }
