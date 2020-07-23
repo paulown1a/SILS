@@ -24,9 +24,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="HoldingStatus">
-      <EntityTypeMapping TypeName="SILSModel.HoldingStatu">
-        <MappingFragment StoreEntitySet="HoldingStatus">
+    <EntitySetMapping Name="HoldingLists">
+      <EntityTypeMapping TypeName="SILSModel.HoldingList">
+        <MappingFragment StoreEntitySet="HoldingList">
           <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
           <ScalarProperty Name="BookId" ColumnName="BookId" />
           <ScalarProperty Name="Count" ColumnName="Count" />

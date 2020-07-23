@@ -13,7 +13,7 @@
     <Property Name="KDCId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Code" Relationship="Self.FK_Book_Code" FromRole="Book" ToRole="Code" />
-    <NavigationProperty Name="HoldingStatus" Relationship="Self.FK_HoldingStatus_Book" FromRole="Book" ToRole="HoldingStatus" />
+    <NavigationProperty Name="HoldingLists" Relationship="Self.FK_HoldingStatus_Book" FromRole="Book" ToRole="HoldingList" />
   </EntityType>
   <EntityType Name="Code">
     <Key>
@@ -27,7 +27,7 @@
     <NavigationProperty Name="Code2" Relationship="Self.FK_Code_Code" FromRole="Code1" ToRole="Code" />
     <NavigationProperty Name="Libraries" Relationship="Self.FK_Library_Code" FromRole="Code" ToRole="Library" />
   </EntityType>
-  <EntityType Name="HoldingStatu">
+  <EntityType Name="HoldingList">
     <Key>
       <PropertyRef Name="LibraryId" />
       <PropertyRef Name="BookId" />
@@ -37,8 +37,8 @@
     <Property Name="Count" Type="Int32" />
     <Property Name="ReceiptDate" Type="DateTime" Precision="0" />
     <Property Name="Classification" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Book" Relationship="Self.FK_HoldingStatus_Book" FromRole="HoldingStatus" ToRole="Book" />
-    <NavigationProperty Name="Library" Relationship="Self.FK_HoldingStatus_Library" FromRole="HoldingStatus" ToRole="Library" />
+    <NavigationProperty Name="Book" Relationship="Self.FK_HoldingStatus_Book" FromRole="HoldingList" ToRole="Book" />
+    <NavigationProperty Name="Library" Relationship="Self.FK_HoldingStatus_Library" FromRole="HoldingList" ToRole="Library" />
   </EntityType>
   <EntityType Name="Library">
     <Key>
@@ -51,7 +51,7 @@
     <Property Name="Website" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Code" Relationship="Self.FK_Library_Code" FromRole="Library" ToRole="Code" />
-    <NavigationProperty Name="HoldingStatus" Relationship="Self.FK_HoldingStatus_Library" FromRole="Library" ToRole="HoldingStatus" />
+    <NavigationProperty Name="HoldingLists" Relationship="Self.FK_HoldingStatus_Library" FromRole="Library" ToRole="HoldingList" />
   </EntityType>
   <Association Name="FK_Book_Code">
     <End Role="Code" Type="Self.Code" Multiplicity="1" />
@@ -67,12 +67,12 @@
   </Association>
   <Association Name="FK_HoldingStatus_Book">
     <End Role="Book" Type="Self.Book" Multiplicity="1" />
-    <End Role="HoldingStatus" Type="Self.HoldingStatu" Multiplicity="*" />
+    <End Role="HoldingList" Type="Self.HoldingList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Book">
         <PropertyRef Name="BookId" />
       </Principal>
-      <Dependent Role="HoldingStatus">
+      <Dependent Role="HoldingList">
         <PropertyRef Name="BookId" />
       </Dependent>
     </ReferentialConstraint>
@@ -103,12 +103,12 @@
   </Association>
   <Association Name="FK_HoldingStatus_Library">
     <End Role="Library" Type="Self.Library" Multiplicity="1" />
-    <End Role="HoldingStatus" Type="Self.HoldingStatu" Multiplicity="*" />
+    <End Role="HoldingList" Type="Self.HoldingList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Library">
         <PropertyRef Name="LibraryId" />
       </Principal>
-      <Dependent Role="HoldingStatus">
+      <Dependent Role="HoldingList">
         <PropertyRef Name="LibraryId" />
       </Dependent>
     </ReferentialConstraint>
@@ -116,7 +116,7 @@
   <EntityContainer Name="SILSEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Books" EntityType="Self.Book" />
     <EntitySet Name="Codes" EntityType="Self.Code" />
-    <EntitySet Name="HoldingStatus" EntityType="Self.HoldingStatu" />
+    <EntitySet Name="HoldingLists" EntityType="Self.HoldingList" />
     <EntitySet Name="Libraries" EntityType="Self.Library" />
     <AssociationSet Name="FK_Book_Code" Association="Self.FK_Book_Code">
       <End Role="Code" EntitySet="Codes" />
@@ -124,7 +124,7 @@
     </AssociationSet>
     <AssociationSet Name="FK_HoldingStatus_Book" Association="Self.FK_HoldingStatus_Book">
       <End Role="Book" EntitySet="Books" />
-      <End Role="HoldingStatus" EntitySet="HoldingStatus" />
+      <End Role="HoldingList" EntitySet="HoldingLists" />
     </AssociationSet>
     <AssociationSet Name="FK_Code_Code" Association="Self.FK_Code_Code">
       <End Role="Code" EntitySet="Codes" />
@@ -136,7 +136,7 @@
     </AssociationSet>
     <AssociationSet Name="FK_HoldingStatus_Library" Association="Self.FK_HoldingStatus_Library">
       <End Role="Library" EntitySet="Libraries" />
-      <End Role="HoldingStatus" EntitySet="HoldingStatus" />
+      <End Role="HoldingList" EntitySet="HoldingLists" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
