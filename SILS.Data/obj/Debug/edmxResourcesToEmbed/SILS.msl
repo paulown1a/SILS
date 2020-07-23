@@ -7,7 +7,7 @@
           <ScalarProperty Name="BookId" ColumnName="BookId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Author" ColumnName="Author" />
-          <ScalarProperty Name="PublicationDate" ColumnName="PublicationDate" />
+          <ScalarProperty Name="PublicationYear" ColumnName="PublicationYear" />
           <ScalarProperty Name="Publisher" ColumnName="Publisher" />
           <ScalarProperty Name="ISBN" ColumnName="ISBN" />
           <ScalarProperty Name="KDCId" ColumnName="KDCId" />
@@ -41,7 +41,7 @@
           <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="LocationId" ColumnName="LocationId" />
-          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Website" ColumnName="Website" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
         </MappingFragment>

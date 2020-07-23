@@ -12,3 +12,9 @@ C:\git\SILS\SILS.Data\obj\Debug\SILS.Data.dll
 C:\git\SILS\SILS.Data\obj\Debug\SILS.Data.pdb
 C:\git\SILS\SILS.Data\bin\Debug\Newtonsoft.Json.dll
 C:\git\SILS\SILS.Data\bin\Debug\Newtonsoft.Json.xml
+C:\git\SILS\SILS.Data\bin\Debug\ExcelDataReader.DataSet.dll
+C:\git\SILS\SILS.Data\bin\Debug\ExcelDataReader.dll
+C:\git\SILS\SILS.Data\bin\Debug\ExcelDataReader.pdb
+C:\git\SILS\SILS.Data\bin\Debug\ExcelDataReader.xml
+C:\git\SILS\SILS.Data\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\git\SILS\SILS.Data\bin\Debug\ExcelDataReader.DataSet.xml

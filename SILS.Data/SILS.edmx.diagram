@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bef7f9750f83494f8ccc2f1a7917fcf1" Name="Diagram1">
+      <Diagram DiagramId="5ff33c75d0e84b6a98e3d238f77bc2b4" Name="Diagram1">
         <EntityTypeShape EntityType="SILSModel.Book" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SILSModel.Code" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SILSModel.HoldingList" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />

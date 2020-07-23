@@ -13,5 +13,11 @@ namespace SILS.Data
             SILSEntities context = CreateContext();
             return context.Libraries.FirstOrDefault(a => a.LibraryId == libraryId);
         }
+
+        public Library GetName(string name)
+        {
+            SILSEntities context = CreateContext();
+            return context.Libraries.FirstOrDefault(a => a.Name == name);
+        }
     }
 }

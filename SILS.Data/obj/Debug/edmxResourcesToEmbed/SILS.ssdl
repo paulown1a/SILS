@@ -7,11 +7,11 @@
     <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Author" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="PublicationDate" Type="date" Nullable="false" />
+    <Property Name="PublicationYear" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Publisher" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ISBN" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="KDCId" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Picture" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Picture" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Code">
     <Key>
@@ -39,7 +39,7 @@
     <Property Name="LibraryId" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="LocationId" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Adress" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1000" Nullable="false" />
     <Property Name="Website" Type="nvarchar" MaxLength="1000" />
     <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
   </EntityType>

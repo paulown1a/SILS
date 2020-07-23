@@ -8,7 +8,8 @@ namespace SILS.Data
 {
     public partial class Book
     {
-
+        public int Count { get; set; }
+        public DateTime ReceiptDate { get; set; }
 
     }
 }
