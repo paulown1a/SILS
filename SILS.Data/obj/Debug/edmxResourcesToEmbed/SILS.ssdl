@@ -5,12 +5,12 @@
       <PropertyRef Name="BookId" />
     </Key>
     <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Author" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="PublicationYear" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Publisher" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Author" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PublicationYear" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Publisher" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ISBN" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="KDCId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KDCId" Type="nvarchar" MaxLength="50" />
     <Property Name="Picture" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Code">
@@ -44,7 +44,7 @@
     <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_Book_Code">
-    <End Role="Code" Type="Self.Code" Multiplicity="1" />
+    <End Role="Code" Type="Self.Code" Multiplicity="0..1" />
     <End Role="Book" Type="Self.Book" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Code">

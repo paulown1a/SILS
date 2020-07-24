@@ -20,7 +20,7 @@ namespace SILS.Data
         public Nullable<System.DateTime> ReceiptDate { get; set; }
         public bool Classification { get; set; }
     
-        public virtual Book Book { get; set; }
         public virtual Library Library { get; set; }
+        public virtual Book Book { get; set; }
     }
 }

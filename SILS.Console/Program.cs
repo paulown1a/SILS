@@ -38,46 +38,48 @@ namespace SILS.Console
 
                     // 2. Use the AsDataSet extension method
                     var result = reader.AsDataSet();
-                    int i = 1;
-                    while (i < 1000)
+                    int i = 121950;
+                    while (true)
                     {
                         Book book = new Book();
                         book.Name = result.Tables[0].Rows[i][1].ToString();
-                        book.Author = result.Tables[0].Rows[i][2].ToString().Replace(";","");
-                            book.Publisher = result.Tables[0].Rows[i][3].ToString() == "" ? "=" : result.Tables[0].Rows[i][3].ToString();
+                        book.Author = result.Tables[0].Rows[i][2].ToString().Replace(";","")==""? "=": result.Tables[0].Rows[i][2].ToString().Replace(";", "");
+                        book.Publisher = result.Tables[0].Rows[i][3].ToString() == "" ? "=" : result.Tables[0].Rows[i][3].ToString();
                         book.PublicationYear = result.Tables[0].Rows[i][4].ToString();
                         book.ISBN = result.Tables[0].Rows[i][5].ToString();
-                        book.Count = int.Parse(result.Tables[0].Rows[i][10].ToString());
-                        book.ReceiptDate = DateTime.Parse(result.Tables[0].Rows[i][12].ToString());
                         try
                         {
-                            book.KDCId = result.Tables[0].Rows[i][9].ToString() == "" ? "K1000" : "K" + result.Tables[0].Rows[i][9].ToString().Substring(0, 3);
+                            book.KDCId = 'K'+ result.Tables[0].Rows[i][9].ToString().Substring(0,3) ;
                         }
                         catch
                         {
                             book.KDCId = "K1000";
                         }
-                            
-                   
-                          
+      
                         //Console.WriteLine(result.Tables[0].Columns.Count);
-                        System.Console.WriteLine($"{book.Name} / {book.Author} / {book.Publisher}");
+                        
                         i++;
-                        if (DataRepository.Book.GetbyISBN(book.ISBN) == null)
+                        if (DataRepository.Book.GetbyISBN(book.ISBN) == null || 
+                            DataRepository.Book.GetName(book.Name)==null)
+                        {
                             DataRepository.Book.Insert(book);
+                            System.Console.WriteLine($"{i} / {book.Name} / {book.Author} / {book.Publisher}");
+                        }
+                            
+                        
+
                         HoldingList holdingList = new HoldingList();
                         holdingList.LibraryId = DataRepository.Library.GetName(targetLibraries[16]).LibraryId;
                         holdingList.BookId = DataRepository.Book.GetbyISBN(book.ISBN).BookId;
-                        holdingList.Count = book.Count;
-                        holdingList.ReceiptDate = book.ReceiptDate;
+                        holdingList.Count = int.Parse(result.Tables[0].Rows[i][10].ToString());
+                        holdingList.ReceiptDate = DateTime.Parse(result.Tables[0].Rows[i][12].ToString());
                         holdingList.Classification = book.KDCId == "K1000" ? true : false;
                         if (DataRepository.HoldingList.Get(holdingList.LibraryId, holdingList.BookId) == null)
                             DataRepository.HoldingList.Insert(holdingList);
                         // The result of each spreadsheet is in result.Tables
-
+                        if (result.Tables[0].Rows[i][0] == null)
+                            break;
                     }
-
-
 
                 }
 
@@ -162,8 +164,8 @@ namespace SILS.Console
                     }
                     book.PublicationYear = tokens[4] == "" ? "-" : tokens[4];
                     book.ISBN = tokens[5];
-                    book.Count = int.Parse(tokens[10]);
-                    book.ReceiptDate = DateTime.Parse(tokens[12]);
+                    //book.Count = int.Parse(tokens[10]);
+                  //  book.ReceiptDate = DateTime.Parse(tokens[12]);
                     try
                     {
                         book.KDCId = "K" + tokens[9].Substring(0, 3);
