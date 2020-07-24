@@ -13,5 +13,17 @@ namespace SILS.Data
             SILSEntities context = CreateContext();
             return context.Books.FirstOrDefault(a => a.BookId == bookId);
         }
+
+        public Book GetbyISBN(string isbn)
+        {
+            SILSEntities context = CreateContext();
+            return context.Books.FirstOrDefault(a => a.ISBN == isbn);
+        }
+
+        public Book GetName(string name)
+        {
+            SILSEntities context = CreateContext();
+            return context.Books.FirstOrDefault(a => a.Name == name);
+        }
     }
 }

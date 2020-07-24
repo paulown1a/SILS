@@ -42,12 +42,19 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +68,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="LibraryBooksData\강남도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\강동도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\강서도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\개포도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\고척도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\구로도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\남산도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\도봉도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\동대문도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\동작도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\서대문도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\서울시립어린이도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\송파도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\양천도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\용산도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\정독도서관 장서 대출목록 %282020년 06월%29.csv" />
+    <None Include="LibraryBooksData\종로도서관 장서 대출목록 %282020년 06월%29.csv" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -69,9 +93,7 @@
       <Name>SILS.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LibraryData\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

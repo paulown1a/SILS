@@ -27,6 +27,7 @@ namespace SILS.Data
 
         public void Insert(T entity)
         {
+            
             SILSEntities context = CreateContext();
             context.Entry(entity).State = EntityState.Added;
             context.SaveChanges();

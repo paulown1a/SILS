@@ -15,3 +15,9 @@ C:\git\SILS\SILS.Console\bin\Debug\SILS.Data.dll.config
 C:\git\SILS\SILS.Console\bin\Debug\EntityFramework.xml
 C:\git\SILS\SILS.Console\bin\Debug\EntityFramework.SqlServer.dll
 C:\git\SILS\SILS.Console\bin\Debug\EntityFramework.SqlServer.xml
+C:\git\SILS\SILS.Console\bin\Debug\ExcelDataReader.DataSet.dll
+C:\git\SILS\SILS.Console\bin\Debug\ExcelDataReader.dll
+C:\git\SILS\SILS.Console\bin\Debug\ExcelDataReader.pdb
+C:\git\SILS\SILS.Console\bin\Debug\ExcelDataReader.xml
+C:\git\SILS\SILS.Console\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\git\SILS\SILS.Console\bin\Debug\ExcelDataReader.DataSet.xml

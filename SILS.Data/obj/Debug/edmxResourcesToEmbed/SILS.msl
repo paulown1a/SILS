@@ -1,20 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SILSModelStoreContainer" CdmEntityContainer="SILSEntities">
-    <EntitySetMapping Name="Books">
-      <EntityTypeMapping TypeName="SILSModel.Book">
-        <MappingFragment StoreEntitySet="Book">
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Author" ColumnName="Author" />
-          <ScalarProperty Name="PublicationDate" ColumnName="PublicationDate" />
-          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
-          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
-          <ScalarProperty Name="KDCId" ColumnName="KDCId" />
-          <ScalarProperty Name="Picture" ColumnName="Picture" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Codes">
       <EntityTypeMapping TypeName="SILSModel.Code">
         <MappingFragment StoreEntitySet="Code">
@@ -41,9 +27,23 @@
           <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="LocationId" ColumnName="LocationId" />
-          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Website" ColumnName="Website" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="SILSModel.Book">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="KDCId" ColumnName="KDCId" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="PublicationYear" ColumnName="PublicationYear" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

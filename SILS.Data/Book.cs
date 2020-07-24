@@ -23,7 +23,7 @@ namespace SILS.Data
         public int BookId { get; set; }
         public string Name { get; set; }
         public string Author { get; set; }
-        public System.DateTime PublicationDate { get; set; }
+        public string PublicationYear { get; set; }
         public string Publisher { get; set; }
         public string ISBN { get; set; }
         public string KDCId { get; set; }

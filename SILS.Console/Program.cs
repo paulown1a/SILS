@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
+using ExcelDataReader;
 using Newtonsoft.Json;
 using SILS.Data;
 
@@ -9,38 +12,109 @@ namespace SILS.Console
 {
     class Program
     {
-        public static string[] targetLibraries ={ "강남도서관","강동도서관","강서도서관","개포도서관","고척도서관","구로도서관","남산도서관","도봉도서관","동대문도서관","동작도서관","서대문도서관","송파도서관","양천도서관","용산도서관","정독도서관","종로도서관","서울시립어린이도서관" };
+        public static string[] targetLibraries = { "강남도서관", "강동도서관", "강서도서관", "개포도서관", "고척도서관", "구로도서관", "남산도서관", "도봉도서관", "동대문도서관", "동작도서관", "서대문도서관", "송파도서관", "양천도서관", "용산도서관", "정독도서관", "종로도서관", "서울시립어린이도서관" };
+
+
         static void Main(string[] args)
         {
-            int select = 0;
-            System.Console.WriteLine("원하는 기능을 선택하세요.\n도서관 최신화 - 1");
 
-            select = int.Parse(System.Console.ReadLine());
-            if (select == 1)
+            using (var stream = File.Open($@"C:\\git\\temp\\SILS-master\\BookData\\{targetLibraries[16]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
             {
-                List<APILibrary> libraries = new List<APILibrary>(1100);
-                for (int i = 1; i <= 3; i++)
+                // Auto-detect format, supports:
+                //  - Binary Excel files (2.0-2003 format; *.xls)
+                //  - OpenXml Excel files (2007 format; *.xlsx)
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
                 {
-                    libraries.AddRange(LoadLibraries(i));
-                }
-                foreach (var library in libraries)
-                    for (int i = 0; i < targetLibraries.Length; i++)
+                    // Choose one of either 1 or 2:
+
+                    // 1. Use the reader methods
+                    do
                     {
-                        if (library.Name == targetLibraries[i])
+                        while (reader.Read())
                         {
-                            System.Console.WriteLine($"{library.LocationId[0]} / {library.LocationId[1]} / {library.Name}");
-                            Library insertLibrary = new Library();
-                            Code code = DataRepository.Code.GetByNameAndUpper(library.LocationId[0]);
-                            insertLibrary.LocationId = DataRepository.Code.GetByNameAndUpper(library.LocationId[1], code.CodeId).CodeId;
-                            insertLibrary.LibraryId = library.LibraryId;
-                            insertLibrary.Name = library.Name;
-                            insertLibrary.Adress = library.Address;
-                            insertLibrary.Website = library.Website;
-                            insertLibrary.PhoneNumber = library.PhoneNumber;
-                            DataRepository.Library.Insert(insertLibrary);
-                            //
+                            // reader.GetDouble(0);
                         }
+                    } while (reader.NextResult());
+
+                    // 2. Use the AsDataSet extension method
+                    var result = reader.AsDataSet();
+                    int i = 121950;
+                    while (true)
+                    {
+                        Book book = new Book();
+                        book.Name = result.Tables[0].Rows[i][1].ToString();
+                        book.Author = result.Tables[0].Rows[i][2].ToString().Replace(";","")==""? "=": result.Tables[0].Rows[i][2].ToString().Replace(";", "");
+                        book.Publisher = result.Tables[0].Rows[i][3].ToString() == "" ? "=" : result.Tables[0].Rows[i][3].ToString();
+                        book.PublicationYear = result.Tables[0].Rows[i][4].ToString();
+                        book.ISBN = result.Tables[0].Rows[i][5].ToString();
+                        try
+                        {
+                            book.KDCId = 'K'+ result.Tables[0].Rows[i][9].ToString().Substring(0,3) ;
+                        }
+                        catch
+                        {
+                            book.KDCId = "K1000";
+                        }
+      
+                        //Console.WriteLine(result.Tables[0].Columns.Count);
+                        
+                        i++;
+                        if (DataRepository.Book.GetbyISBN(book.ISBN) == null || 
+                            DataRepository.Book.GetName(book.Name)==null)
+                        {
+                            DataRepository.Book.Insert(book);
+                            System.Console.WriteLine($"{i} / {book.Name} / {book.Author} / {book.Publisher}");
+                        }
+                            
+                        
+
+                        HoldingList holdingList = new HoldingList();
+                        holdingList.LibraryId = DataRepository.Library.GetName(targetLibraries[16]).LibraryId;
+                        holdingList.BookId = DataRepository.Book.GetbyISBN(book.ISBN).BookId;
+                        holdingList.Count = int.Parse(result.Tables[0].Rows[i][10].ToString());
+                        holdingList.ReceiptDate = DateTime.Parse(result.Tables[0].Rows[i][12].ToString());
+                        holdingList.Classification = book.KDCId == "K1000" ? true : false;
+                        if (DataRepository.HoldingList.Get(holdingList.LibraryId, holdingList.BookId) == null)
+                            DataRepository.HoldingList.Insert(holdingList);
+                        // The result of each spreadsheet is in result.Tables
+                        if (result.Tables[0].Rows[i][0] == null)
+                            break;
                     }
+
+                }
+
+                    #region
+                    /*int select = 0;
+                        System.Console.WriteLine("원하는 기능을 선택하세요.\n도서관 최신화 => 1\t 종료=> 다른키");
+
+                        select = int.Parse(System.Console.ReadLine());
+                        if (select == 1)
+                        {
+                            List<APILibrary> libraries = new List<APILibrary>(1100);
+                            for (int i = 1; i <= 3; i++)
+                            {
+                                libraries.AddRange(LoadLibraries(i));
+                            }
+                            foreach (var library in libraries)
+                                for (int i = 0; i < targetLibraries.Length; i++)
+                                {
+                                    if (library.Name == targetLibraries[i])
+                                    {
+                                        System.Console.WriteLine($"{library.LocationId[0]} / {library.LocationId[1]} / {library.Name}");
+                                        Library insertLibrary = new Library();
+                                        Code code = DataRepository.Code.GetByNameAndUpper(library.LocationId[0]);
+                                        insertLibrary.LocationId = DataRepository.Code.GetByNameAndUpper(library.LocationId[1], code.CodeId).CodeId;
+                                        insertLibrary.LibraryId = library.LibraryId;
+                                        insertLibrary.Name = library.Name;
+                                        insertLibrary.Adress = library.Address; 
+                                        insertLibrary.Website = library.Website;
+                                        insertLibrary.PhoneNumber = library.PhoneNumber;
+                                        DataRepository.Library.Insert(insertLibrary);
+                                    }
+                                }
+                        }*/
+                    #endregion
+                
             }
         }
 
@@ -65,6 +139,48 @@ namespace SILS.Console
 
             return libraries;
         }
+
+        private static List<Book> LoadBooks(string targetLibraries)
+        {
+            var lines = File.ReadAllLines($@"C:\git\SILS\SILS.Console\LibraryBooksData\{targetLibraries} 장서 대출목록 (2020년 06월).csv", System.Text.Encoding.Default).Skip(1);
+
+            List<Book> books = new List<Book>(lines.Count());
+            foreach (var line in lines)
+            {
+                Book book = new Book();
+                var tokens = line.Replace("\"", "").Split(',');
+
+                if (tokens[5] != "")
+                {
+                    book.Name = tokens[1];
+                    book.Author = tokens[2];
+                    try
+                    {
+                        book.Publisher = tokens[3];
+                    }
+                    catch
+                    {
+                        book.Publisher = "-";
+                    }
+                    book.PublicationYear = tokens[4] == "" ? "-" : tokens[4];
+                    book.ISBN = tokens[5];
+                    //book.Count = int.Parse(tokens[10]);
+                  //  book.ReceiptDate = DateTime.Parse(tokens[12]);
+                    try
+                    {
+                        book.KDCId = "K" + tokens[9].Substring(0, 3);
+                    }
+                    catch
+                    {
+                        book.KDCId = "K1000";
+                    }
+                    books.Add(book);
+                }
+            }
+            return books;
+        }
+
+
     }
 
     public class APILibrary

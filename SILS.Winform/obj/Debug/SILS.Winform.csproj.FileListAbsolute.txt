@@ -94,3 +94,9 @@ C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.csproj.CoreCompileInputs.cache
 C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.csproj.CopyComplete
 C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.exe
 C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.pdb
+C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.DataSet.dll
+C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.dll
+C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.pdb
+C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.xml
+C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.DataSet.xml
