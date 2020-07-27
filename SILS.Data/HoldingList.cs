@@ -16,11 +16,11 @@ namespace SILS.Data
     {
         public string LibraryId { get; set; }
         public int BookId { get; set; }
-        public Nullable<int> Count { get; set; }
-        public Nullable<System.DateTime> ReceiptDate { get; set; }
+        public int Count { get; set; }
+        public string ReceiptDate { get; set; }
         public bool Classification { get; set; }
     
-        public virtual Library Library { get; set; }
         public virtual Book Book { get; set; }
+        public virtual Library Library { get; set; }
     }
 }

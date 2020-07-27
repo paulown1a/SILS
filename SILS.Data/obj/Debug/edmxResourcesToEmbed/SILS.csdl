@@ -12,19 +12,6 @@
     <NavigationProperty Name="Libraries" Relationship="Self.FK_Library_Code" FromRole="Code" ToRole="Library" />
     <NavigationProperty Name="Books" Relationship="SILSModel.FK_Book_Code" FromRole="Code" ToRole="Book" />
   </EntityType>
-  <EntityType Name="HoldingList">
-    <Key>
-      <PropertyRef Name="LibraryId" />
-      <PropertyRef Name="BookId" />
-    </Key>
-    <Property Name="LibraryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="BookId" Type="Int32" Nullable="false" />
-    <Property Name="Count" Type="Int32" />
-    <Property Name="ReceiptDate" Type="DateTime" Precision="0" />
-    <Property Name="Classification" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Library" Relationship="Self.FK_HoldingStatus_Library" FromRole="HoldingList" ToRole="Library" />
-    <NavigationProperty Name="Book" Relationship="SILSModel.FK_HoldingStatus_Book" FromRole="HoldingList" ToRole="Book" />
-  </EntityType>
   <EntityType Name="Library">
     <Key>
       <PropertyRef Name="LibraryId" />
@@ -36,7 +23,7 @@
     <Property Name="Website" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Code" Relationship="Self.FK_Library_Code" FromRole="Library" ToRole="Code" />
-    <NavigationProperty Name="HoldingLists" Relationship="Self.FK_HoldingStatus_Library" FromRole="Library" ToRole="HoldingList" />
+    <NavigationProperty Name="HoldingLists" Relationship="SILSModel.FK_HoldingList_Library" FromRole="Library" ToRole="HoldingList" />
   </EntityType>
   <Association Name="FK_Code_Code">
     <End Role="Code" Type="Self.Code" Multiplicity="0..1" />
@@ -62,21 +49,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_HoldingStatus_Library">
-    <End Role="Library" Type="Self.Library" Multiplicity="1" />
-    <End Role="HoldingList" Type="Self.HoldingList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Library">
-        <PropertyRef Name="LibraryId" />
-      </Principal>
-      <Dependent Role="HoldingList">
-        <PropertyRef Name="LibraryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="SILSEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Codes" EntityType="Self.Code" />
-    <EntitySet Name="HoldingLists" EntityType="Self.HoldingList" />
     <EntitySet Name="Libraries" EntityType="Self.Library" />
     <AssociationSet Name="FK_Code_Code" Association="Self.FK_Code_Code">
       <End Role="Code" EntitySet="Codes" />
@@ -86,17 +60,18 @@
       <End Role="Code" EntitySet="Codes" />
       <End Role="Library" EntitySet="Libraries" />
     </AssociationSet>
-    <AssociationSet Name="FK_HoldingStatus_Library" Association="Self.FK_HoldingStatus_Library">
-      <End Role="Library" EntitySet="Libraries" />
-      <End Role="HoldingList" EntitySet="HoldingLists" />
-    </AssociationSet>
     <EntitySet Name="Books" EntityType="SILSModel.Book" />
     <AssociationSet Name="FK_Book_Code" Association="SILSModel.FK_Book_Code">
       <End Role="Code" EntitySet="Codes" />
       <End Role="Book" EntitySet="Books" />
     </AssociationSet>
-    <AssociationSet Name="FK_HoldingStatus_Book" Association="SILSModel.FK_HoldingStatus_Book">
+    <EntitySet Name="HoldingLists" EntityType="SILSModel.HoldingList" />
+    <AssociationSet Name="FK_HoldingList_Book" Association="SILSModel.FK_HoldingList_Book">
       <End Role="Book" EntitySet="Books" />
+      <End Role="HoldingList" EntitySet="HoldingLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoldingList_Library" Association="SILSModel.FK_HoldingList_Library">
+      <End Role="Library" EntitySet="Libraries" />
       <End Role="HoldingList" EntitySet="HoldingLists" />
     </AssociationSet>
   </EntityContainer>
@@ -113,7 +88,7 @@
     <Property Name="KDCId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Code" Relationship="SILSModel.FK_Book_Code" FromRole="Book" ToRole="Code" />
-    <NavigationProperty Name="HoldingLists" Relationship="SILSModel.FK_HoldingStatus_Book" FromRole="Book" ToRole="HoldingList" />
+    <NavigationProperty Name="HoldingLists" Relationship="SILSModel.FK_HoldingList_Book" FromRole="Book" ToRole="HoldingList" />
   </EntityType>
   <Association Name="FK_Book_Code">
     <End Type="SILSModel.Code" Role="Code" Multiplicity="0..1" />
@@ -127,7 +102,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_HoldingStatus_Book">
+  <EntityType Name="HoldingList">
+    <Key>
+      <PropertyRef Name="LibraryId" />
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="LibraryId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookId" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="ReceiptDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Classification" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="SILSModel.FK_HoldingList_Book" FromRole="HoldingList" ToRole="Book" />
+    <NavigationProperty Name="Library" Relationship="SILSModel.FK_HoldingList_Library" FromRole="HoldingList" ToRole="Library" />
+  </EntityType>
+  <Association Name="FK_HoldingList_Book">
     <End Type="SILSModel.Book" Role="Book" Multiplicity="1" />
     <End Type="SILSModel.HoldingList" Role="HoldingList" Multiplicity="*" />
     <ReferentialConstraint>
@@ -136,6 +124,18 @@
       </Principal>
       <Dependent Role="HoldingList">
         <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoldingList_Library">
+    <End Type="SILSModel.Library" Role="Library" Multiplicity="1" />
+    <End Type="SILSModel.HoldingList" Role="HoldingList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Library">
+        <PropertyRef Name="LibraryId" />
+      </Principal>
+      <Dependent Role="HoldingList">
+        <PropertyRef Name="LibraryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

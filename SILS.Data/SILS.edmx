@@ -34,7 +34,7 @@
           <Property Name="LibraryId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="BookId" Type="int" Nullable="false" />
           <Property Name="Count" Type="int" Nullable="false" />
-          <Property Name="ReceipDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReceiptDate" Type="nvarchar" MaxLength="50" />
           <Property Name="Classification" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Library">
@@ -212,7 +212,7 @@
             <End Role="Library" EntitySet="Libraries" />
             <End Role="HoldingList" EntitySet="HoldingLists" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Book">
           <Key>
             <PropertyRef Name="BookId" />
@@ -248,7 +248,7 @@
           <Property Name="LibraryId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="BookId" Type="Int32" Nullable="false" />
           <Property Name="Count" Type="Int32" Nullable="false" />
-          <Property Name="ReceipDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiptDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Classification" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Book" Relationship="SILSModel.FK_HoldingList_Book" FromRole="HoldingList" ToRole="Book" />
           <NavigationProperty Name="Library" Relationship="SILSModel.FK_HoldingList_Library" FromRole="HoldingList" ToRole="Library" />
@@ -277,7 +277,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -322,7 +322,7 @@
             <EntityTypeMapping TypeName="SILSModel.HoldingList">
               <MappingFragment StoreEntitySet="HoldingList">
                 <ScalarProperty Name="Classification" ColumnName="Classification" />
-                <ScalarProperty Name="ReceipDate" ColumnName="ReceipDate" />
+                <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="BookId" ColumnName="BookId" />
                 <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
