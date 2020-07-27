@@ -28,8 +28,8 @@
     </Key>
     <Property Name="LibraryId" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="BookId" Type="int" Nullable="false" />
-    <Property Name="Count" Type="int" />
-    <Property Name="ReceiptDate" Type="date" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="ReceiptDate" Type="nvarchar" MaxLength="50" />
     <Property Name="Classification" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Library">
@@ -67,7 +67,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_HoldingStatus_Book">
+  <Association Name="FK_HoldingList_Book">
     <End Role="Book" Type="Self.Book" Multiplicity="1" />
     <End Role="HoldingList" Type="Self.HoldingList" Multiplicity="*" />
     <ReferentialConstraint>
@@ -79,7 +79,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_HoldingStatus_Library">
+  <Association Name="FK_HoldingList_Library">
     <End Role="Library" Type="Self.Library" Multiplicity="1" />
     <End Role="HoldingList" Type="Self.HoldingList" Multiplicity="*" />
     <ReferentialConstraint>
@@ -116,11 +116,11 @@
       <End Role="Code" EntitySet="Code" />
       <End Role="Code1" EntitySet="Code" />
     </AssociationSet>
-    <AssociationSet Name="FK_HoldingStatus_Book" Association="Self.FK_HoldingStatus_Book">
+    <AssociationSet Name="FK_HoldingList_Book" Association="Self.FK_HoldingList_Book">
       <End Role="Book" EntitySet="Book" />
       <End Role="HoldingList" EntitySet="HoldingList" />
     </AssociationSet>
-    <AssociationSet Name="FK_HoldingStatus_Library" Association="Self.FK_HoldingStatus_Library">
+    <AssociationSet Name="FK_HoldingList_Library" Association="Self.FK_HoldingList_Library">
       <End Role="Library" EntitySet="Library" />
       <End Role="HoldingList" EntitySet="HoldingList" />
     </AssociationSet>

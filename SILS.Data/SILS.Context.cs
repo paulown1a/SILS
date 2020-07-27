@@ -26,8 +26,8 @@ namespace SILS.Data
         }
     
         public virtual DbSet<Code> Codes { get; set; }
-        public virtual DbSet<HoldingList> HoldingLists { get; set; }
         public virtual DbSet<Library> Libraries { get; set; }
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<HoldingList> HoldingLists { get; set; }
     }
 }

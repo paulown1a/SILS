@@ -10,17 +10,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="HoldingLists">
-      <EntityTypeMapping TypeName="SILSModel.HoldingList">
-        <MappingFragment StoreEntitySet="HoldingList">
-          <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
-          <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
-          <ScalarProperty Name="Classification" ColumnName="Classification" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Libraries">
       <EntityTypeMapping TypeName="SILSModel.Library">
         <MappingFragment StoreEntitySet="Library">
@@ -44,6 +33,17 @@
           <ScalarProperty Name="Author" ColumnName="Author" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="BookId" ColumnName="BookId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoldingLists">
+      <EntityTypeMapping TypeName="SILSModel.HoldingList">
+        <MappingFragment StoreEntitySet="HoldingList">
+          <ScalarProperty Name="Classification" ColumnName="Classification" />
+          <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

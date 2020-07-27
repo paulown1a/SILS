@@ -17,9 +17,8 @@ namespace SILS.Console
 
         static void Main(string[] args)
         {
-            int target = 0;
-            //using (var stream = File.Open($@"C:\\git\\temp\\SILS-master\\BookData\\{targetLibraries[16]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
-            using (var stream = File.Open($"C:\\git\\SILS\\BookData\\{targetLibraries[target]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
+            int target = 16;
+            using (var stream = File.Open($@"C:\\git\\SILS\\BookData\\{targetLibraries[target]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
             {
                 // Auto-detect format, supports:
                 //  - Binary Excel files (2.0-2003 format; *.xls)
@@ -39,7 +38,7 @@ namespace SILS.Console
 
                     // 2. Use the AsDataSet extension method
                     var result = reader.AsDataSet();
-                    int i = 82213;
+                    int i = 196061;
                     while (true)
                     {
                         Book book = new Book();
@@ -59,9 +58,9 @@ namespace SILS.Console
       
                         //Console.WriteLine(result.Tables[0].Columns.Count);
                         
-                        i++;
+                      
                         if (DataRepository.Book.GetbyISBN(book.ISBN) == null || 
-                            DataRepository.Book.GetAllName(book.Name)==null)
+                            DataRepository.Book.GetName(book.Name)==null)
                         {
                             DataRepository.Book.Insert(book);
                             System.Console.WriteLine($"{i} / {book.Name} / {book.Author} / {book.Publisher}");
@@ -73,12 +72,14 @@ namespace SILS.Console
                         holdingList.LibraryId = DataRepository.Library.GetName(targetLibraries[target]).LibraryId;
                         holdingList.BookId = DataRepository.Book.GetbyISBN(book.ISBN).BookId;
                         holdingList.Count = int.Parse(result.Tables[0].Rows[i][10].ToString());
-                        holdingList.ReceiptDate = DateTime.Parse(result.Tables[0].Rows[i][12].ToString());
+                        holdingList.ReceiptDate = result.Tables[0].Rows[i][12].ToString();
                         holdingList.Classification = book.KDCId == "K1000" ? true : false;
                         if (DataRepository.HoldingList.Get(holdingList.LibraryId, holdingList.BookId) == null)
                             DataRepository.HoldingList.Insert(holdingList);
                         // The result of each spreadsheet is in result.Tables
+                        i++;
                         if (result.Tables[0].Rows[i][0] == null)
+                           
                             break;
                     }
 
