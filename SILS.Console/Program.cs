@@ -17,8 +17,8 @@ namespace SILS.Console
 
         static void Main(string[] args)
         {
-            int target = 0;
-            using (var stream = File.Open($@"C:\\git\\SILS\\BookData\\{targetLibraries[target]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
+            int target = 16;
+            using (var stream = File.Open($@"C:\\git\\temp\\SILS-master\\BookData\\{targetLibraries[target]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
             {
                 // Auto-detect format, supports:
                 //  - Binary Excel files (2.0-2003 format; *.xls)
