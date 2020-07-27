@@ -17,8 +17,9 @@ namespace SILS.Console
 
         static void Main(string[] args)
         {
-
-            using (var stream = File.Open($@"C:\\git\\temp\\SILS-master\\BookData\\{targetLibraries[16]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
+            int target = 0;
+            //using (var stream = File.Open($@"C:\\git\\temp\\SILS-master\\BookData\\{targetLibraries[16]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
+            using (var stream = File.Open($"C:\\git\\SILS\\BookData\\{targetLibraries[target]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
             {
                 // Auto-detect format, supports:
                 //  - Binary Excel files (2.0-2003 format; *.xls)
@@ -38,7 +39,7 @@ namespace SILS.Console
 
                     // 2. Use the AsDataSet extension method
                     var result = reader.AsDataSet();
-                    int i = 121950;
+                    int i = 82213;
                     while (true)
                     {
                         Book book = new Book();
@@ -60,7 +61,7 @@ namespace SILS.Console
                         
                         i++;
                         if (DataRepository.Book.GetbyISBN(book.ISBN) == null || 
-                            DataRepository.Book.GetName(book.Name)==null)
+                            DataRepository.Book.GetAllName(book.Name)==null)
                         {
                             DataRepository.Book.Insert(book);
                             System.Console.WriteLine($"{i} / {book.Name} / {book.Author} / {book.Publisher}");
@@ -69,7 +70,7 @@ namespace SILS.Console
                         
 
                         HoldingList holdingList = new HoldingList();
-                        holdingList.LibraryId = DataRepository.Library.GetName(targetLibraries[16]).LibraryId;
+                        holdingList.LibraryId = DataRepository.Library.GetName(targetLibraries[target]).LibraryId;
                         holdingList.BookId = DataRepository.Book.GetbyISBN(book.ISBN).BookId;
                         holdingList.Count = int.Parse(result.Tables[0].Rows[i][10].ToString());
                         holdingList.ReceiptDate = DateTime.Parse(result.Tables[0].Rows[i][12].ToString());

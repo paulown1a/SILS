@@ -85,9 +85,7 @@ C:\git\SILS\SILS.Winform\bin\Debug\es\DevExpress.Office.v20.1.Core.resources.dll
 C:\git\SILS\SILS.Winform\bin\Debug\ja\DevExpress.Office.v20.1.Core.resources.dll
 C:\git\SILS\SILS.Winform\bin\Debug\ru\DevExpress.Office.v20.1.Core.resources.dll
 C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.csprojAssemblyReference.cache
-C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.MainForm.resources
 C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.Properties.Resources.resources
-C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.SearchedForm.resources
 C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.csproj.GenerateResource.cache
 C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.exe.licenses
 C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.csproj.CoreCompileInputs.cache
@@ -100,3 +98,16 @@ C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.pdb
 C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.xml
 C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.DataSet.pdb
 C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.DataSet.xml
+C:\git\SILS\SILS.Winform\bin\Debug\EntityFramework.dll
+C:\git\SILS\SILS.Winform\bin\Debug\EntityFramework.SqlServer.dll
+C:\git\SILS\SILS.Winform\bin\Debug\Newtonsoft.Json.dll
+C:\git\SILS\SILS.Winform\bin\Debug\SILS.Data.dll
+C:\git\SILS\SILS.Winform\bin\Debug\SILS.Data.pdb
+C:\git\SILS\SILS.Winform\bin\Debug\SILS.Data.dll.config
+C:\git\SILS\SILS.Winform\bin\Debug\EntityFramework.xml
+C:\git\SILS\SILS.Winform\bin\Debug\EntityFramework.SqlServer.xml
+C:\git\SILS\SILS.Winform\bin\Debug\Newtonsoft.Json.xml
+C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.BookDetailForm.resources
+C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.BookSearch.resources
+C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.BookListForm.resources
+C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.LibraryDetailForm.resources

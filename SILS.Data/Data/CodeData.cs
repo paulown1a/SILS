@@ -16,8 +16,6 @@ namespace SILS.Data
         public Code GetByNameAndUpper(string name, string upper = "")
         {
             SILSEntities context = CreateContext();
-            Code code = context.Codes.FirstOrDefault(a => a.Name == name && a.UpperclassId == upper);
-            return code;
             return context.Codes.FirstOrDefault(a => a.Name == name && a.UpperclassId == upper);
         }
     }

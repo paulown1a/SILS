@@ -19,5 +19,14 @@ namespace SILS.Data
             SILSEntities context = CreateContext();
             return context.Libraries.FirstOrDefault(a => a.Name == name);
         }
+
+        public List<Library> GetByBook(int bookId)
+        {
+            SILSEntities context = CreateContext();
+            var query = from x in context.HoldingLists
+                        where x.BookId == bookId
+                        select x.Library;
+            return query.ToList();
+        }
     }
 }
