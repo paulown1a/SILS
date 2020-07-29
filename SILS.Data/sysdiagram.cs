@@ -12,15 +12,12 @@ namespace SILS.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class HoldingList
+    public partial class sysdiagram
     {
-        public string LibraryId { get; set; }
-        public int BookId { get; set; }
-        public int Count { get; set; }
-        public string ReceiptDate { get; set; }
-        public bool Classification { get; set; }
-    
-        public virtual Book Book { get; set; }
-        public virtual Library Library { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
