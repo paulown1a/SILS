@@ -54,7 +54,7 @@ namespace SILS.Winform
             ShowInTaskbar = true;
             Opacity = 100;
         }
-
+        //
         private void chbClicked_CheckedChanged(object sender, EventArgs e)
         {
             pnSimpleSearch.Visible = true;
