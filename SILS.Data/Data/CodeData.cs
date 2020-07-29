@@ -18,5 +18,14 @@ namespace SILS.Data
             SILSEntities context = CreateContext();
             return context.Codes.FirstOrDefault(a => a.Name == name && a.UpperclassId == upper);
         }
+
+        public object GetLocation(string upperclassId = "")
+        {
+            SILSEntities context = CreateContext();
+            var qurey = from x in context.Codes
+                        where x.CodeId.Contains("L") && (x.UpperclassId == upperclassId)
+                        select x;
+            return qurey.ToList();
+        }
     }
 }

@@ -37,11 +37,11 @@
             this.grvBooks = new DevExpress.XtraGrid.GridControl();
             this.bdsBook = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colPicture = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAuthor = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPublicationYear = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPublisher = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPicture = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPublicationYear = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pnSearch)).BeginInit();
             this.pnSearch.SuspendLayout();
             this.pnDetailSearch.SuspendLayout();
@@ -88,6 +88,7 @@
             this.txbName.Properties.NullText = "도서 검색";
             this.txbName.Size = new System.Drawing.Size(837, 36);
             this.txbName.TabIndex = 6;
+            this.txbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbName_KeyDown);
             // 
             // btnSearch
             // 
@@ -128,6 +129,18 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
+            // colPicture
+            // 
+            this.colPicture.Caption = "사진";
+            this.colPicture.FieldName = "Picture";
+            this.colPicture.MinWidth = 25;
+            this.colPicture.Name = "colPicture";
+            this.colPicture.OptionsColumn.AllowEdit = false;
+            this.colPicture.OptionsColumn.ReadOnly = true;
+            this.colPicture.Visible = true;
+            this.colPicture.VisibleIndex = 0;
+            this.colPicture.Width = 94;
+            // 
             // colName
             // 
             this.colName.Caption = "도서명";
@@ -152,18 +165,6 @@
             this.colAuthor.VisibleIndex = 2;
             this.colAuthor.Width = 94;
             // 
-            // colPublicationYear
-            // 
-            this.colPublicationYear.Caption = "출판 연도";
-            this.colPublicationYear.FieldName = "PublicationYear";
-            this.colPublicationYear.MinWidth = 25;
-            this.colPublicationYear.Name = "colPublicationYear";
-            this.colPublicationYear.OptionsColumn.AllowEdit = false;
-            this.colPublicationYear.OptionsColumn.ReadOnly = true;
-            this.colPublicationYear.Visible = true;
-            this.colPublicationYear.VisibleIndex = 4;
-            this.colPublicationYear.Width = 94;
-            // 
             // colPublisher
             // 
             this.colPublisher.Caption = "출판사";
@@ -176,17 +177,17 @@
             this.colPublisher.VisibleIndex = 3;
             this.colPublisher.Width = 94;
             // 
-            // colPicture
+            // colPublicationYear
             // 
-            this.colPicture.Caption = "사진";
-            this.colPicture.FieldName = "Picture";
-            this.colPicture.MinWidth = 25;
-            this.colPicture.Name = "colPicture";
-            this.colPicture.OptionsColumn.AllowEdit = false;
-            this.colPicture.OptionsColumn.ReadOnly = true;
-            this.colPicture.Visible = true;
-            this.colPicture.VisibleIndex = 0;
-            this.colPicture.Width = 94;
+            this.colPublicationYear.Caption = "출판 연도";
+            this.colPublicationYear.FieldName = "PublicationYear";
+            this.colPublicationYear.MinWidth = 25;
+            this.colPublicationYear.Name = "colPublicationYear";
+            this.colPublicationYear.OptionsColumn.AllowEdit = false;
+            this.colPublicationYear.OptionsColumn.ReadOnly = true;
+            this.colPublicationYear.Visible = true;
+            this.colPublicationYear.VisibleIndex = 4;
+            this.colPublicationYear.Width = 94;
             // 
             // BookListForm
             // 
@@ -195,7 +196,7 @@
             this.ClientSize = new System.Drawing.Size(1098, 660);
             this.Controls.Add(this.pnSearch);
             this.Name = "BookListForm";
-            this.Text = "SearchedForm";
+            this.Text = "도서 목록";
             ((System.ComponentModel.ISupportInitialize)(this.pnSearch)).EndInit();
             this.pnSearch.ResumeLayout(false);
             this.pnDetailSearch.ResumeLayout(false);

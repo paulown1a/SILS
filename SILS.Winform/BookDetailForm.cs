@@ -28,5 +28,16 @@ namespace SILS.Winform
             lblKDC.Text = DataRepository.Code.Get(book.KDCId).Name;
             bdsLibrary.DataSource = DataRepository.Library.GetByBook(book.BookId);
         }
+
+        private void gridControl1_DoubleClick(object sender, EventArgs e)
+        {
+            Library library = bdsLibrary.Current as Library;
+
+            if (library == null)
+                return;
+
+            LibraryDetailForm libraryDetailForm = new LibraryDetailForm(library);
+            libraryDetailForm.ShowDialog();
+        }
     }
 }

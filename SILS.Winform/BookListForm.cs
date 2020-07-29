@@ -21,20 +21,20 @@ namespace SILS.Winform
 
         public BookListForm(string name) : this()
         {
-            MessageBox.Show($"{name}");
             bdsBook.DataSource = DataRepository.Book.GetAllName(name);
             lblSearchText.Text = $"\"{name}\" 검색 결과";
         }
         
         public BookListForm(string name, string publisher, string author, string publishedYear) : this()
         {
-            MessageBox.Show($"{name}/{publisher}/{author}/{publishedYear}");
             bdsBook.DataSource = DataRepository.Book.GetAllName(name, publisher, author, publishedYear);
             lblSearchText.Text = $"\"{name}\" 검색 결과";
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txbName.Text == "도서 검색")
+                return;
             bdsBook.DataSource = DataRepository.Book.GetAllName(txbName.Text);
             lblSearchText.Text = $"\"{txbName.Text}\" 검색 결과";
         }
@@ -48,6 +48,12 @@ namespace SILS.Winform
 
             BookDetailForm bookDetailForm = new BookDetailForm(book);
             bookDetailForm.ShowDialog();
+        }
+
+        private void txbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSearch_Click(this, e);
         }
     }
 }

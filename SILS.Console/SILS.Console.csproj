@@ -68,23 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="LibraryBooksData\강남도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\강동도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\강서도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\개포도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\고척도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\구로도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\남산도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\도봉도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\동대문도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\동작도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\서대문도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\서울시립어린이도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\송파도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\양천도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\용산도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\정독도서관 장서 대출목록 %282020년 06월%29.csv" />
-    <None Include="LibraryBooksData\종로도서관 장서 대출목록 %282020년 06월%29.csv" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -20,11 +20,10 @@ namespace SILS.Winform
 
         public LibraryDetailForm(Library library) : this()
         {
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            lblName.Text = library.Name;
+            lblPhoneNumber.Text = library.PhoneNumber;
+            lblAddress.Text = library.Address;
+            lblWebSite.Text = library.Website;
         }
     }
 }

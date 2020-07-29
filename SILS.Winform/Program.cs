@@ -20,7 +20,7 @@ namespace SILS.Winform
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ProcessKiller.Instance.Start();
-            Application.Run(new BookSearch());
+            Application.Run(new BookSearchForm());
         }
     }
 }

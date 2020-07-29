@@ -20,6 +20,15 @@ namespace SILS.Data
             return context.Libraries.FirstOrDefault(a => a.Name == name);
         }
 
+        public object GetByLocation(string locationId)
+        {
+            SILSEntities context = CreateContext();
+            var query = from x in context.Libraries
+                        where x.LocationId == locationId
+                        select x;
+            return query.ToList();
+        }
+
         public List<Library> GetByBook(int bookId)
         {
             SILSEntities context = CreateContext();

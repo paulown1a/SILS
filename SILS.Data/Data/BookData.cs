@@ -20,7 +20,12 @@ namespace SILS.Data
             return context.Books.FirstOrDefault(a => a.ISBN == isbn);
         }
 
-        /*
+        public Book GetName(string name)
+        {
+            SILSEntities context = CreateContext();
+            return context.Books.FirstOrDefault(a => a.Name == name);
+        }
+
         public List<Book> GetAllName(string name)
         {
             SILSEntities context = CreateContext();
@@ -29,8 +34,7 @@ namespace SILS.Data
                         select x;
             return query.ToList();
         }
-        */
-
+        
         public object GetAllName(string name, string publisher = null, string author = null, string publishedYear = null)
         {
             SILSEntities context = CreateContext();

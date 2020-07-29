@@ -17,7 +17,7 @@ namespace SILS.Console
 
         static void Main(string[] args)
         {
-            int target = 16;
+            int target = 0;
             using (var stream = File.Open($@"C:\\git\\SILS\\BookData\\{targetLibraries[target]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
             {
                 // Auto-detect format, supports:
@@ -38,7 +38,7 @@ namespace SILS.Console
 
                     // 2. Use the AsDataSet extension method
                     var result = reader.AsDataSet();
-                    int i = 196061;
+                    int i = 1;
                     while (true)
                     {
                         Book book = new Book();
@@ -55,6 +55,7 @@ namespace SILS.Console
                         {
                             book.KDCId = "K1000";
                         }
+
       
                         //Console.WriteLine(result.Tables[0].Columns.Count);
                         
@@ -75,12 +76,17 @@ namespace SILS.Console
                         holdingList.ReceiptDate = result.Tables[0].Rows[i][12].ToString();
                         holdingList.Classification = book.KDCId == "K1000" ? true : false;
                         if (DataRepository.HoldingList.Get(holdingList.LibraryId, holdingList.BookId) == null)
+                        {
                             DataRepository.HoldingList.Insert(holdingList);
+                            System.Console.WriteLine($"{i} / {book.Name} / {book.KDCId} / {holdingList.LibraryId}");
+                        }
                         // The result of each spreadsheet is in result.Tables
                         i++;
                         if (result.Tables[0].Rows[i][0] == null)
-                           
+                        {
+                            System.Console.WriteLine("끝");
                             break;
+                        }
                     }
 
                 }
