@@ -25,5 +25,49 @@ namespace SILS.Data
             SILSEntities context = CreateContext();
             return context.Books.FirstOrDefault(a => a.Name == name);
         }
+
+        public List<Book> GetAllName(string name)
+        {
+            SILSEntities context = CreateContext();
+            var query = from x in context.Books
+                        where x.Name.Contains(name)
+                        select x;
+            return query.ToList();
+        }
+        
+        public object GetAllName(string name, string publisher = null, string author = null, string publishedYear = null)
+        {
+            SILSEntities context = CreateContext();
+            var query = from x in context.Books
+                        where x.Name.Contains(name)
+                        select x;
+            List<Book> allBooks = query.ToList();
+            List<Book> books = new List<Book>();
+            if (publisher != null)
+            {
+                foreach (var book in allBooks)
+                    if (book.Publisher.Contains(publisher))
+                        books.Add(book);
+                allBooks = books;
+                books = new List<Book>();
+            }
+            if (author != null)
+            {
+                foreach (var book in allBooks)
+                    if (book.Author.Contains(author))
+                        books.Add(book);
+                allBooks = books;
+                books = new List<Book>();
+            }
+            if (publishedYear != null)
+            {
+                foreach (var book in allBooks)
+                    if (book.PublicationYear.Contains(publishedYear))
+                        books.Add(book);
+                allBooks = books;
+            }
+
+            return allBooks;
+        }
     }
 }

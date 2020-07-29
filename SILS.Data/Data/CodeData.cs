@@ -16,9 +16,16 @@ namespace SILS.Data
         public Code GetByNameAndUpper(string name, string upper = "")
         {
             SILSEntities context = CreateContext();
-            Code code = context.Codes.FirstOrDefault(a => a.Name == name && a.UpperclassId == upper);
-            return code;
             return context.Codes.FirstOrDefault(a => a.Name == name && a.UpperclassId == upper);
+        }
+
+        public object GetLocation(string upperclassId = "")
+        {
+            SILSEntities context = CreateContext();
+            var qurey = from x in context.Codes
+                        where x.CodeId.Contains("L") && (x.UpperclassId == upperclassId)
+                        select x;
+            return qurey.ToList();
         }
     }
 }
