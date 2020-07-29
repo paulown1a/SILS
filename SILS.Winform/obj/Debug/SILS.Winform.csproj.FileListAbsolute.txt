@@ -100,3 +100,9 @@ C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.pdb
 C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.xml
 C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.DataSet.pdb
 C:\git\SILS\SILS.Winform\bin\Debug\ExcelDataReader.DataSet.xml
+C:\git\SILS\SILS.Winform\bin\Debug\EntityFramework.dll
+C:\git\SILS\SILS.Winform\bin\Debug\EntityFramework.SqlServer.dll
+C:\git\SILS\SILS.Winform\bin\Debug\Newtonsoft.Json.dll
+C:\git\SILS\SILS.Winform\bin\Debug\EntityFramework.xml
+C:\git\SILS\SILS.Winform\bin\Debug\EntityFramework.SqlServer.xml
+C:\git\SILS\SILS.Winform\bin\Debug\Newtonsoft.Json.xml
