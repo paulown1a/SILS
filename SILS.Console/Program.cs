@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using ExcelDataReader;
+using Newtonsoft.Json;
 using SILS.Data;
 
 namespace SILS.Console
