@@ -26,9 +26,9 @@ namespace SILS.Data
             return context.Books.FirstOrDefault(a => a.Name == name);
         }
 
-        public Task<List<Book>> GetAllNameAsync(string name)
+        public Task<List<Book>> GetAllNameAsync(string name, string publisher = null, string author = null, string publishedYear = null)
         {
-            return Task.Factory.StartNew(() => DataRepository.Book.GetAllName(name));
+            return Task.Factory.StartNew(() => DataRepository.Book.GetAllName(name, publisher, author, publishedYear));
         }
 
         
