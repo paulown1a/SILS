@@ -33,6 +33,7 @@ namespace SILS.Winform
         {
             this.btnDetailSearch = new DevExpress.XtraEditors.SimpleButton();
             this.pnSearch = new DevExpress.XtraEditors.PanelControl();
+            this.btnLibraryList = new System.Windows.Forms.Button();
             this.pnDetailSearch = new System.Windows.Forms.Panel();
             this.txbName = new DevExpress.XtraEditors.TextEdit();
             this.txbPublishedYear = new DevExpress.XtraEditors.TextEdit();
@@ -44,7 +45,6 @@ namespace SILS.Winform
             this.btnSimpleSearch = new DevExpress.XtraEditors.SimpleButton();
             this.chbUnclicked = new System.Windows.Forms.CheckBox();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
-            this.btnLibraryList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pnSearch)).BeginInit();
             this.pnSearch.SuspendLayout();
             this.pnDetailSearch.SuspendLayout();
@@ -70,14 +70,25 @@ namespace SILS.Winform
             // pnSearch
             // 
             this.pnSearch.Controls.Add(this.btnLibraryList);
-            this.pnSearch.Controls.Add(this.pnDetailSearch);
             this.pnSearch.Controls.Add(this.pnSimpleSearch);
+            this.pnSearch.Controls.Add(this.pnDetailSearch);
             this.pnSearch.Controls.Add(this.lblTitle);
             this.pnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnSearch.Location = new System.Drawing.Point(0, 0);
             this.pnSearch.Name = "pnSearch";
-            this.pnSearch.Size = new System.Drawing.Size(807, 335);
+            this.pnSearch.Size = new System.Drawing.Size(807, 366);
             this.pnSearch.TabIndex = 2;
+            // 
+            // btnLibraryList
+            // 
+            this.btnLibraryList.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.btnLibraryList.Location = new System.Drawing.Point(686, 12);
+            this.btnLibraryList.Name = "btnLibraryList";
+            this.btnLibraryList.Size = new System.Drawing.Size(109, 40);
+            this.btnLibraryList.TabIndex = 7;
+            this.btnLibraryList.Text = "지원 도서관";
+            this.btnLibraryList.UseVisualStyleBackColor = true;
+            this.btnLibraryList.Click += new System.EventHandler(this.btnLibraryList_Click);
             // 
             // pnDetailSearch
             // 
@@ -90,7 +101,7 @@ namespace SILS.Winform
             this.pnDetailSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnDetailSearch.Location = new System.Drawing.Point(2, 88);
             this.pnDetailSearch.Name = "pnDetailSearch";
-            this.pnDetailSearch.Size = new System.Drawing.Size(803, 245);
+            this.pnDetailSearch.Size = new System.Drawing.Size(803, 276);
             this.pnDetailSearch.TabIndex = 3;
             // 
             // txbName
@@ -156,7 +167,7 @@ namespace SILS.Winform
             this.pnSimpleSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnSimpleSearch.Location = new System.Drawing.Point(2, 88);
             this.pnSimpleSearch.Name = "pnSimpleSearch";
-            this.pnSimpleSearch.Size = new System.Drawing.Size(803, 245);
+            this.pnSimpleSearch.Size = new System.Drawing.Size(803, 276);
             this.pnSimpleSearch.TabIndex = 6;
             // 
             // txbSimpleName
@@ -204,22 +215,11 @@ namespace SILS.Winform
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "  도서를 검색하세요";
             // 
-            // btnLibraryList
-            // 
-            this.btnLibraryList.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.btnLibraryList.Location = new System.Drawing.Point(686, 12);
-            this.btnLibraryList.Name = "btnLibraryList";
-            this.btnLibraryList.Size = new System.Drawing.Size(109, 40);
-            this.btnLibraryList.TabIndex = 7;
-            this.btnLibraryList.Text = "지원 도서관";
-            this.btnLibraryList.UseVisualStyleBackColor = true;
-            this.btnLibraryList.Click += new System.EventHandler(this.btnLibraryList_Click);
-            // 
             // BookSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 335);
+            this.ClientSize = new System.Drawing.Size(807, 366);
             this.Controls.Add(this.pnSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);

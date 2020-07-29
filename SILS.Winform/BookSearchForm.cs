@@ -14,18 +14,16 @@ namespace SILS.Winform
         public BookSearchForm()
         {
             InitializeComponent();
-
-            pnDetailSearch.Visible = false;
         }
 
         private void btnSimpleSearch_Click(object sender, EventArgs e)
         {
             if (txbSimpleName.Text == "도서 검색")
                 return;
-            BookListForm searchedForm = new BookListForm(txbSimpleName.Text);
+            BookListForm bookListForm = new BookListForm(txbSimpleName.Text);
             ShowInTaskbar = false;
             Opacity = 0;
-            searchedForm.ShowDialog();
+            bookListForm.ShowDialog();
             ShowInTaskbar = true;
             Opacity = 100;
         }
@@ -33,7 +31,6 @@ namespace SILS.Winform
         private void chbUnclicked_CheckedChanged(object sender, EventArgs e)
         {
             pnSimpleSearch.Visible = false;
-            pnDetailSearch.Visible = true;
             chbClicked.Checked = true;
         }
 
@@ -46,8 +43,11 @@ namespace SILS.Winform
         private void btnDetailSearch_Click(object sender, EventArgs e)
         {
             if (txbName.Text == "도서 검색")
-                return;
-            BookListForm bookListForm = new BookListForm(txbName.Text, txbPublisher.Text == "출판사"?null:txbPublisher.Text, txbAuthor.Text == "저자 검색" ? null : txbAuthor.Text, txbPublishedYear.Text == "출판 연도" ? null : txbPublishedYear.Text);
+                if (txbAuthor.Text == "저자 검색")
+                    if (txbPublisher.Text == "출판사")
+                        if (txbPublishedYear.Text == "출판 연도")
+                            return;
+            BookListForm bookListForm = new BookListForm(txbName.Text == "도서 검색"?"":txbName.Text, txbPublisher.Text == "출판사"?null:txbPublisher.Text, txbAuthor.Text == "저자 검색" ? null : txbAuthor.Text, txbPublishedYear.Text == "출판 연도" ? null : txbPublishedYear.Text);
             ShowInTaskbar = false;
             Opacity = 0;
             bookListForm.ShowDialog();
@@ -58,7 +58,6 @@ namespace SILS.Winform
         private void chbClicked_CheckedChanged(object sender, EventArgs e)
         {
             pnSimpleSearch.Visible = true;
-            pnDetailSearch.Visible = false;
             chbUnclicked.Checked = false;
         }
 
@@ -90,7 +89,7 @@ namespace SILS.Winform
         private void btnLibraryList_Click(object sender, EventArgs e)
         {
             LibraryListForm libraryListForm = new LibraryListForm();
-            libraryListForm.Show();
+            libraryListForm.ShowDialog();
         }
     }
 }

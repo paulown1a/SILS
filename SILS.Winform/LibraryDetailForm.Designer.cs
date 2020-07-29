@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.lblWebSite = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.lblPhoneNumber = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.lblTitleWebSite = new System.Windows.Forms.Label();
             this.lblTitleText = new System.Windows.Forms.Label();
             this.lblTitleAddress = new System.Windows.Forms.Label();
             this.lblTitleName = new System.Windows.Forms.Label();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lblTitleTel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lblName = new System.Windows.Forms.Label();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lblAddress = new System.Windows.Forms.Label();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lblWebSite = new System.Windows.Forms.Label();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             this.simpleSeparator2 = new DevExpress.XtraLayout.SimpleSeparator();
@@ -57,9 +57,9 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTitleTel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
@@ -90,6 +90,44 @@
             this.layoutControl1.Size = new System.Drawing.Size(648, 163);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // lblWebSite
+            // 
+            this.lblWebSite.Font = new System.Drawing.Font("Gulim", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblWebSite.Location = new System.Drawing.Point(169, 108);
+            this.lblWebSite.Name = "lblWebSite";
+            this.lblWebSite.Size = new System.Drawing.Size(467, 43);
+            this.lblWebSite.TabIndex = 14;
+            this.lblWebSite.Text = "-";
+            this.lblWebSite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWebSite.DoubleClick += new System.EventHandler(this.lblWebSite_DoubleClick);
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.Location = new System.Drawing.Point(169, 60);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(467, 43);
+            this.lblAddress.TabIndex = 13;
+            this.lblAddress.Text = "-";
+            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPhoneNumber
+            // 
+            this.lblPhoneNumber.Location = new System.Drawing.Point(483, 12);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(153, 43);
+            this.lblPhoneNumber.TabIndex = 12;
+            this.lblPhoneNumber.Text = "000-0000";
+            this.lblPhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblName
+            // 
+            this.lblName.Location = new System.Drawing.Point(169, 12);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(152, 43);
+            this.lblName.TabIndex = 11;
+            this.lblName.Text = "==========";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTitleWebSite
             // 
@@ -160,15 +198,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.lblTitleAddress;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(156, 47);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
             // lblTitleTel
             // 
             this.lblTitleTel.Control = this.lblTitleText;
@@ -187,14 +216,14 @@
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
-            // lblName
+            // layoutControlItem4
             // 
-            this.lblName.Location = new System.Drawing.Point(169, 12);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(152, 43);
-            this.lblName.TabIndex = 11;
-            this.lblName.Text = "==========";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.layoutControlItem4.Control = this.lblTitleAddress;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(156, 47);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem1
             // 
@@ -205,15 +234,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // lblPhoneNumber
-            // 
-            this.lblPhoneNumber.Location = new System.Drawing.Point(483, 12);
-            this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(153, 43);
-            this.lblPhoneNumber.TabIndex = 12;
-            this.lblPhoneNumber.Text = "000-0000";
-            this.lblPhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.lblPhoneNumber;
@@ -223,15 +243,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // lblAddress
-            // 
-            this.lblAddress.Location = new System.Drawing.Point(169, 60);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(467, 43);
-            this.lblAddress.TabIndex = 13;
-            this.lblAddress.Text = "-";
-            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.lblAddress;
@@ -240,15 +251,6 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(471, 47);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
-            // 
-            // lblWebSite
-            // 
-            this.lblWebSite.Location = new System.Drawing.Point(169, 108);
-            this.lblWebSite.Name = "lblWebSite";
-            this.lblWebSite.Size = new System.Drawing.Size(467, 43);
-            this.lblWebSite.TabIndex = 14;
-            this.lblWebSite.Text = "-";
-            this.lblWebSite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // layoutControlItem8
             // 
@@ -320,9 +322,9 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTitleTel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
