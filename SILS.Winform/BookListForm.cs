@@ -27,7 +27,7 @@ namespace SILS.Winform
         {
             base.OnShown(e);
 
-            //bdsBook.DataSource = await DataRepository.Book.GetAllNameAsync(_name);
+            bdsBook.DataSource = await DataRepository.Book.GetAllNameAsync(_name);
         }
 
         public BookListForm(string name) : this()

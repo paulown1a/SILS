@@ -26,6 +26,7 @@ namespace SILS.Winform
             bookListForm.ShowDialog();
             ShowInTaskbar = true;
             Opacity = 100;
+            
         }
 
         private void chbUnclicked_CheckedChanged(object sender, EventArgs e)
@@ -42,11 +43,15 @@ namespace SILS.Winform
 
         private void btnDetailSearch_Click(object sender, EventArgs e)
         {
-            if (txbName.Text == "도서 검색")
+           /* if (txbName.Text == "도서 검색")
                 if (txbAuthor.Text == "저자 검색")
                     if (txbPublisher.Text == "출판사")
                         if (txbPublishedYear.Text == "출판 연도")
-                            return;
+                            return;*/
+            if (txbName.Text == "도서 검색" && txbAuthor.Text == "저자 검색" &&
+                txbPublisher.Text == "출판사" && txbPublishedYear.Text == "출판 연도")
+                return;
+
             BookListForm bookListForm = new BookListForm(txbName.Text == "도서 검색"?"":txbName.Text, txbPublisher.Text == "출판사"?null:txbPublisher.Text, txbAuthor.Text == "저자 검색" ? null : txbAuthor.Text, txbPublishedYear.Text == "출판 연도" ? null : txbPublishedYear.Text);
             ShowInTaskbar = false;
             Opacity = 0;
