@@ -20,6 +20,9 @@ namespace SILS.Winform
         }
 
         private string _name;
+        private string _author;
+        private string _publisher;
+        private string _publishedYear;
         private string searchResult="";
 
 
@@ -29,7 +32,7 @@ namespace SILS.Winform
             this.Cursor = Cursors.WaitCursor;
             grvBooks.Cursor = Cursors.WaitCursor;
             btnSearch.Enabled = false;
-            bdsBook.DataSource = await DataRepository.Book.GetAllNameAsync(_name);
+            bdsBook.DataSource = await DataRepository.Book.GetAllNameAsync(_name, _publisher, _author, _publishedYear);
             this.Cursor = Cursors.Default;
             grvBooks.Cursor = Cursors.Default;
             btnSearch.Enabled = true;
@@ -43,7 +46,11 @@ namespace SILS.Winform
 
         public BookListForm(string name, string publisher, string author, string publishedYear) : this()
         {
-            bdsBook.DataSource = DataRepository.Book.GetAllName(name, author, publisher, publishedYear);
+            _name = name;
+            _author = author;
+            _publisher = publisher;
+            _publishedYear = publishedYear;
+
             string[] info = new string[4] { name, author, publisher, publishedYear };
 
             for (int i = 0; i < info.Length; i++)
@@ -53,7 +60,7 @@ namespace SILS.Winform
             }
             
 
-           lblSearchText.Text = $"{searchResult} 검색 결과";
+           lblSearchText.Text = $"{searchResult}검색 결과";
             searchResult = "";
 
         }
