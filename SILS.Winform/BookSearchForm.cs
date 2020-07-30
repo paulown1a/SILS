@@ -31,9 +31,11 @@ namespace SILS.Winform
 
         private void chbUnclicked_CheckedChanged(object sender, EventArgs e)
         {
-            pnSimpleSearch.Visible = false;
+            chbUnclicked.Checked = false;
             txbSimpleName.Text = "도서 검색";
+            pnDetailSearch.BringToFront();
             chbClicked.Checked = true;
+
         }
 
         private void txbSimpleName_KeyDown(object sender, KeyEventArgs e)
@@ -44,11 +46,7 @@ namespace SILS.Winform
 
         private void btnDetailSearch_Click(object sender, EventArgs e)
         {
-           /* if (txbName.Text == "도서 검색")
-                if (txbAuthor.Text == "저자 검색")
-                    if (txbPublisher.Text == "출판사")
-                        if (txbPublishedYear.Text == "출판 연도")
-                            return;*/
+           
             if (txbName.Text == "도서 검색" && txbAuthor.Text == "저자 검색" &&
                 txbPublisher.Text == "출판사" && txbPublishedYear.Text == "출판 연도")
                 return;
@@ -63,8 +61,14 @@ namespace SILS.Winform
         //
         private void chbClicked_CheckedChanged(object sender, EventArgs e)
         {
-            pnSimpleSearch.Visible = true;
-            chbUnclicked.Checked = false;
+            
+            pnSimpleSearchBar.BringToFront();
+            txbName.Text = "도서 검색";
+            txbPublisher.Text = "출판사";
+            txbAuthor.Text = "저자 검색";
+            txbPublishedYear.Text = "출판 연도";
+            
+            
         }
 
         private void txbName_KeyDown(object sender, KeyEventArgs e)
@@ -97,5 +101,31 @@ namespace SILS.Winform
             LibraryListForm libraryListForm = new LibraryListForm();
             libraryListForm.ShowDialog();
         }
+
+        private void txbSimpleName_Click(object sender, EventArgs e)
+        {
+            txbSimpleName.Text = null;
+        }
+
+        private void txbName_Click(object sender, EventArgs e)
+        {
+            txbName.Text = null;
+        }
+
+        private void txbAuthor_Click(object sender, EventArgs e)
+        {
+            txbAuthor.Text = null;
+        }
+
+        private void txbPublisher_Click(object sender, EventArgs e)
+        {
+            txbPublisher.Text = null;
+        }
+
+        private void txbPublishedYear_Click(object sender, EventArgs e)
+        {
+            txbPublishedYear.Text = null;
+        }
+
     }
 }

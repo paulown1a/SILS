@@ -26,8 +26,13 @@ namespace SILS.Winform
         protected override async void OnShown(EventArgs e)
         {
             base.OnShown(e);
-
+            this.Cursor = Cursors.WaitCursor;
+            grvBooks.Cursor = Cursors.WaitCursor;
+            btnSearch.Enabled = false;
             bdsBook.DataSource = await DataRepository.Book.GetAllNameAsync(_name);
+            this.Cursor = Cursors.Default;
+            grvBooks.Cursor = Cursors.Default;
+            btnSearch.Enabled = true;
         }
 
         public BookListForm(string name) : this()
@@ -54,12 +59,18 @@ namespace SILS.Winform
         }
 
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private async void btnSearch_Click(object sender, EventArgs e)
         {
             if (txbName.Text == "도서 검색")
                 return;
-            bdsBook.DataSource = DataRepository.Book.GetAllName(txbName.Text);
+            this.Cursor = Cursors.WaitCursor;
+            grvBooks.Cursor = Cursors.WaitCursor;
+            btnSearch.Enabled = false;
+            bdsBook.DataSource = await DataRepository.Book.GetAllNameAsync(txbName.Text);
             lblSearchText.Text = $"\"{txbName.Text}\" 검색 결과";
+            this.Cursor = Cursors.Default;
+            grvBooks.Cursor = Cursors.Default;
+            btnSearch.Enabled = true;
         }
 
         private void grvBooks_DoubleClick(object sender, EventArgs e)
@@ -78,5 +89,6 @@ namespace SILS.Winform
             if (e.KeyCode == Keys.Enter)
                 btnSearch_Click(this, e);
         }
+
     }
 }
