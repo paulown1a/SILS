@@ -31,6 +31,7 @@ namespace SILS.Winform
         private void chbUnclicked_CheckedChanged(object sender, EventArgs e)
         {
             pnSimpleSearch.Visible = false;
+            txbSimpleName.Text = "도서 검색";
             chbClicked.Checked = true;
         }
 
