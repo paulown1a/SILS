@@ -20,23 +20,23 @@ namespace SILS.Winform
         }
 
         private string _name;
-        private string _author;
-        private string _publisher;
+        private string _publisher; 
+        private string _author; 
         private string _publishedYear;
-        private string searchResult="";
+        private string searchResult = "";
 
 
         protected override async void OnShown(EventArgs e)
         {
             base.OnShown(e);
 
-            bdsBook.DataSource = await DataRepository.Book.GetAllNameAsync(_name, _author, _publisher, _publishedYear);
+            bdsBook.DataSource = await DataRepository.Book.GetAllNameAsync(_name, _publisher, _author, _publishedYear);
         }
 
         public BookListForm(string name) : this()
         {
             _name = name;
-            lblSearchText.Text = $"{name} 검색 결과";
+            lblSearchText.Text = $"\"{name}\" 검색 결과";
         }
 
         public BookListForm(string name, string publisher, string author, string publishedYear) : this()
@@ -61,11 +61,11 @@ namespace SILS.Winform
         }
 
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private async void btnSearch_Click(object sender, EventArgs e)
         {
             if (txbName.Text == "도서 검색")
                 return;
-            bdsBook.DataSource = DataRepository.Book.GetAllName(txbName.Text);
+            bdsBook.DataSource = await DataRepository.Book.GetAllNameAsync(txbName.Text);
             lblSearchText.Text = $"\"{txbName.Text}\" 검색 결과";
         }
 
