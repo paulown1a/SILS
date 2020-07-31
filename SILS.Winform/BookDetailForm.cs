@@ -1,10 +1,17 @@
-﻿using SILS.Data;
+﻿using DevExpress.XtraEditors.Controls;
+using Newtonsoft.Json;
+using SILS.API;
+using SILS.Console;
+using SILS.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,6 +34,7 @@ namespace SILS.Winform
             lblISBN.Text = book.ISBN;
             lblKDC.Text = DataRepository.Code.Get(book.KDCId).Name;
             bdsLibrary.DataSource = DataRepository.Library.GetByBook(book.BookId);
+            this.pePicture.EditValue = PictureAPI.Instance.WebImageView(book.ISBN);
         }
 
         private void gridControl1_DoubleClick(object sender, EventArgs e)
