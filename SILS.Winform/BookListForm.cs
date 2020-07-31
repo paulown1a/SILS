@@ -19,24 +19,65 @@ namespace SILS.Winform
             InitializeComponent();
         }
 
+        private string _name;
+        private string _author;
+        private string _publisher;
+        private string _publishedYear;
+        private string searchResult="";
+
+
+        protected override async void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            this.Cursor = Cursors.WaitCursor;
+            grvBooks.Cursor = Cursors.WaitCursor;
+            btnSearch.Enabled = false;
+            bdsBook.DataSource = await DataRepository.Book.GetAllNameAsync(_name, _publisher, _author, _publishedYear);
+            this.Cursor = Cursors.Default;
+            grvBooks.Cursor = Cursors.Default;
+            btnSearch.Enabled = true;
+        }
+
         public BookListForm(string name) : this()
         {
-            bdsBook.DataSource = DataRepository.Book.GetAllName(name);
-            lblSearchText.Text = $"\"{name}\" 검색 결과";
-        }
-        
-        public BookListForm(string name, string publisher, string author, string publishedYear) : this()
-        {
-            bdsBook.DataSource = DataRepository.Book.GetAllName(name, publisher, author, publishedYear);
+            _name = name;
             lblSearchText.Text = $"\"{name}\" 검색 결과";
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        public BookListForm(string name, string publisher, string author, string publishedYear) : this()
+        {
+            _name = name;
+            _author = author;
+            _publisher = publisher;
+            _publishedYear = publishedYear;
+
+            string[] info = new string[4] { name, author, publisher, publishedYear };
+
+            for (int i = 0; i < info.Length; i++)
+            {
+                if(info[i] != null)
+                 searchResult += info[i] + " ";
+            }
+            
+
+           lblSearchText.Text = $"{searchResult}검색 결과";
+            searchResult = "";
+
+        }
+
+
+        private async void btnSearch_Click(object sender, EventArgs e)
         {
             if (txbName.Text == "도서 검색")
                 return;
-            bdsBook.DataSource = DataRepository.Book.GetAllName(txbName.Text);
+            this.Cursor = Cursors.WaitCursor;
+            grvBooks.Cursor = Cursors.WaitCursor;
+            btnSearch.Enabled = false;
+            bdsBook.DataSource = await DataRepository.Book.GetAllNameAsync(txbName.Text);
             lblSearchText.Text = $"\"{txbName.Text}\" 검색 결과";
+            this.Cursor = Cursors.Default;
+            grvBooks.Cursor = Cursors.Default;
+            btnSearch.Enabled = true;
         }
 
         private void grvBooks_DoubleClick(object sender, EventArgs e)
@@ -55,5 +96,6 @@ namespace SILS.Winform
             if (e.KeyCode == Keys.Enter)
                 btnSearch_Click(this, e);
         }
+
     }
 }

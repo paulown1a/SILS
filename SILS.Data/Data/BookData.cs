@@ -26,16 +26,23 @@ namespace SILS.Data
             return context.Books.FirstOrDefault(a => a.Name == name);
         }
 
-        public List<Book> GetAllName(string name)
+        public Task<List<Book>> GetAllNameAsync(string name, string publisher = null, string author = null, string publishedYear = null)
+        {
+            return Task.Factory.StartNew(() => DataRepository.Book.GetAllName(name, publisher, author, publishedYear));
+        }
+
+        
+        /*public List<Book> GetAllName(string name)
         {
             SILSEntities context = CreateContext();
             var query = from x in context.Books
                         where x.Name.Contains(name)
                         select x;
             return query.ToList();
-        }
+        }*/
         
-        public object GetAllName(string name, string publisher = null, string author = null, string publishedYear = null)
+        
+        public List<Book> GetAllName(string name, string publisher = null, string author = null, string publishedYear = null)
         {
             SILSEntities context = CreateContext();
             var query = from x in context.Books

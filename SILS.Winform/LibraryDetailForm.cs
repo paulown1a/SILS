@@ -25,5 +25,10 @@ namespace SILS.Winform
             lblAddress.Text = library.Address;
             lblWebSite.Text = library.Website;
         }
+
+        private void lblWebSite_DoubleClick(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(lblWebSite.Text);
+        }
     }
 }

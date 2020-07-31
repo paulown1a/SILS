@@ -44,7 +44,7 @@ namespace SILS.Winform
                 return;
 
             LibraryDetailForm libraryDetailForm = new LibraryDetailForm(library);
-            libraryDetailForm.ShowDialog();
+            libraryDetailForm.Show();
         }
     }
 }

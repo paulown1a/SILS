@@ -60,6 +60,9 @@
     <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
+    <Reference Include="MarkdownSharp, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MarkdownSharp.2.0.5\lib\net40\MarkdownSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -158,6 +161,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SILS.API\SILS.API.csproj">
+      <Project>{1ECEF8E3-10BE-44EB-A8C9-2494C18F02B8}</Project>
+      <Name>SILS.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SILS.Console\SILS.Console.csproj">
+      <Project>{09E65C6E-8E27-4520-97CF-7D76FEF508AC}</Project>
+      <Name>SILS.Console</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SILS.Data\SILS.Data.csproj">
       <Project>{13d3a408-358d-4623-b20f-37723d8ba1c8}</Project>
       <Name>SILS.Data</Name>

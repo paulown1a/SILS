@@ -112,3 +112,10 @@ C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.BookListForm.resources
 C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.LibraryDetailForm.resources
 C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.LibraryListForm.resources
 C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.BookSearchForm.resources
+C:\git\SILS\SILS.Winform\bin\Debug\SILS.Console.exe
+C:\git\SILS\SILS.Winform\bin\Debug\SILS.Console.pdb
+C:\git\SILS\SILS.Winform\bin\Debug\SILS.Console.exe.config
+C:\git\SILS\SILS.Winform\bin\Debug\MarkdownSharp.dll
+C:\git\SILS\SILS.Winform\bin\Debug\MarkdownSharp.xml
+C:\git\SILS\SILS.Winform\bin\Debug\SILS.API.dll
+C:\git\SILS\SILS.Winform\bin\Debug\SILS.API.pdb

@@ -18,3 +18,7 @@ C:\git\SILS\SILS.Data\bin\Debug\ExcelDataReader.pdb
 C:\git\SILS\SILS.Data\bin\Debug\ExcelDataReader.xml
 C:\git\SILS\SILS.Data\bin\Debug\ExcelDataReader.DataSet.pdb
 C:\git\SILS\SILS.Data\bin\Debug\ExcelDataReader.DataSet.xml
+C:\git\SILS\SILS.Data\bin\Debug\MarkdownSharp.dll
+C:\git\SILS\SILS.Data\bin\Debug\MarkdownSharp.xml
+C:\git\SILS\SILS.Data\bin\Debug\SILS.API.dll
+C:\git\SILS\SILS.Data\bin\Debug\SILS.API.pdb
