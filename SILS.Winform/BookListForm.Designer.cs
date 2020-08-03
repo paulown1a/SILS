@@ -196,6 +196,7 @@
             this.ClientSize = new System.Drawing.Size(1098, 660);
             this.Controls.Add(this.pnSearch);
             this.Name = "BookListForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "도서 목록";
             ((System.ComponentModel.ISupportInitialize)(this.pnSearch)).EndInit();
             this.pnSearch.ResumeLayout(false);

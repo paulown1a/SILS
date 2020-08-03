@@ -11,6 +11,7 @@
     <NavigationProperty Name="Code2" Relationship="Self.FK_Code_Code" FromRole="Code1" ToRole="Code" />
     <NavigationProperty Name="Libraries" Relationship="Self.FK_Library_Code" FromRole="Code" ToRole="Library" />
     <NavigationProperty Name="Books" Relationship="SILSModel.FK_Book_Code" FromRole="Code" ToRole="Book" />
+    <NavigationProperty Name="Reports" Relationship="SILSModel.FK_Error_Code" FromRole="Code" ToRole="Report" />
   </EntityType>
   <EntityType Name="Library">
     <Key>
@@ -74,6 +75,15 @@
       <End Role="Library" EntitySet="Libraries" />
       <End Role="HoldingList" EntitySet="HoldingLists" />
     </AssociationSet>
+    <EntitySet Name="Reports" EntityType="SILSModel.Report" />
+    <AssociationSet Name="FK_Error_Book" Association="SILSModel.FK_Error_Book">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="Report" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Error_Code" Association="SILSModel.FK_Error_Code">
+      <End Role="Code" EntitySet="Codes" />
+      <End Role="Report" EntitySet="Reports" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Book">
     <Key>
@@ -89,6 +99,7 @@
     <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Code" Relationship="SILSModel.FK_Book_Code" FromRole="Book" ToRole="Code" />
     <NavigationProperty Name="HoldingLists" Relationship="SILSModel.FK_HoldingList_Book" FromRole="Book" ToRole="HoldingList" />
+    <NavigationProperty Name="Reports" Relationship="SILSModel.FK_Error_Book" FromRole="Book" ToRole="Report" />
   </EntityType>
   <Association Name="FK_Book_Code">
     <End Type="SILSModel.Code" Role="Code" Multiplicity="0..1" />
@@ -136,6 +147,40 @@
       </Principal>
       <Dependent Role="HoldingList">
         <PropertyRef Name="LibraryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookId" Type="Int32" Nullable="false" />
+    <Property Name="ReportCodeId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Book" Relationship="SILSModel.FK_Error_Book" FromRole="Report" ToRole="Book" />
+    <NavigationProperty Name="Code" Relationship="SILSModel.FK_Error_Code" FromRole="Report" ToRole="Code" />
+  </EntityType>
+  <Association Name="FK_Error_Book">
+    <End Type="SILSModel.Book" Role="Book" Multiplicity="1" />
+    <End Type="SILSModel.Report" Role="Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="BookId" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Error_Code">
+    <End Type="SILSModel.Code" Role="Code" Multiplicity="1" />
+    <End Type="SILSModel.Report" Role="Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Code">
+        <PropertyRef Name="CodeId" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="ReportCodeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

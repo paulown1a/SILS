@@ -43,6 +43,14 @@
     <Property Name="Website" Type="nvarchar" MaxLength="1000" />
     <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookId" Type="int" Nullable="false" />
+    <Property Name="ReportCodeId" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <Association Name="FK_Book_Code">
     <End Role="Code" Type="Self.Code" Multiplicity="0..1" />
     <End Role="Book" Type="Self.Book" Multiplicity="*" />
@@ -64,6 +72,30 @@
       </Principal>
       <Dependent Role="Code1">
         <PropertyRef Name="UpperclassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Error_Book">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="Report" Type="Self.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="BookId" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Error_Code">
+    <End Role="Code" Type="Self.Code" Multiplicity="1" />
+    <End Role="Report" Type="Self.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Code">
+        <PropertyRef Name="CodeId" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="ReportCodeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -108,6 +140,7 @@
     <EntitySet Name="Code" EntityType="Self.Code" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HoldingList" EntityType="Self.HoldingList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Library" EntityType="Self.Library" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Book_Code" Association="Self.FK_Book_Code">
       <End Role="Code" EntitySet="Code" />
       <End Role="Book" EntitySet="Book" />
@@ -115,6 +148,14 @@
     <AssociationSet Name="FK_Code_Code" Association="Self.FK_Code_Code">
       <End Role="Code" EntitySet="Code" />
       <End Role="Code1" EntitySet="Code" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Error_Book" Association="Self.FK_Error_Book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Report" EntitySet="Report" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Error_Code" Association="Self.FK_Error_Code">
+      <End Role="Code" EntitySet="Code" />
+      <End Role="Report" EntitySet="Report" />
     </AssociationSet>
     <AssociationSet Name="FK_HoldingList_Book" Association="Self.FK_HoldingList_Book">
       <End Role="Book" EntitySet="Book" />

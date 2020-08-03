@@ -12,5 +12,10 @@ namespace SILS.Data
         public static BookData Book { get; } = new BookData();
         public static LibraryData Library { get; } = new LibraryData();
         public static HoldingListData HoldingList { get; } = new HoldingListData();
+        public static ReportData Report { get; } = new ReportData();
+
+       
+
+        
     }
 }

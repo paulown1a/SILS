@@ -63,6 +63,7 @@
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pePicture = new DevExpress.XtraEditors.PictureEdit();
+            this.btnReport = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -88,13 +89,14 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnReport);
             this.panelControl1.Controls.Add(this.layoutControl1);
             this.panelControl1.Controls.Add(this.gridControl1);
             this.panelControl1.Controls.Add(this.pePicture);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(800, 450);
+            this.panelControl1.Size = new System.Drawing.Size(800, 471);
             this.panelControl1.TabIndex = 0;
             // 
             // layoutControl1
@@ -111,7 +113,7 @@
             this.layoutControl1.Controls.Add(this.lblTitleAuthor);
             this.layoutControl1.Controls.Add(this.lblName);
             this.layoutControl1.Controls.Add(this.lblTitlePulishedYear);
-            this.layoutControl1.Location = new System.Drawing.Point(299, 12);
+            this.layoutControl1.Location = new System.Drawing.Point(297, 60);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1092, 0, 812, 500);
             this.layoutControl1.Root = this.Root;
@@ -373,10 +375,10 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.bdsLibrary;
-            this.gridControl1.Location = new System.Drawing.Point(304, 238);
+            this.gridControl1.Location = new System.Drawing.Point(304, 281);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(484, 200);
+            this.gridControl1.Size = new System.Drawing.Size(484, 178);
             this.gridControl1.TabIndex = 14;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -428,14 +430,25 @@
             this.pePicture.Name = "pePicture";
             this.pePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pePicture.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pePicture.Size = new System.Drawing.Size(276, 426);
+            this.pePicture.Size = new System.Drawing.Size(276, 447);
             this.pePicture.TabIndex = 0;
+            // 
+            // btnReport
+            // 
+            this.btnReport.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.Appearance.Options.UseFont = true;
+            this.btnReport.Location = new System.Drawing.Point(681, 25);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(94, 29);
+            this.btnReport.TabIndex = 16;
+            this.btnReport.Text = "정정 신청";
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // BookDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 471);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "BookDetailForm";
@@ -501,5 +514,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraEditors.SimpleButton btnReport;
     }
 }
