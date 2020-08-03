@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -18,7 +19,7 @@ namespace SILS.Console
         {
 
             #region// HashSet
-            HashSet<string> bookEntity = new HashSet<string>();
+            HashSet<string> bookSet = new HashSet<string>();
             HashSet<string> holdingListEntity = new HashSet<string>();
 
             List<Book> books = DataRepository.Book.GetAll();
@@ -26,7 +27,7 @@ namespace SILS.Console
 
             foreach (Book book in books)
             {
-                bookEntity.Add(book.Name + book.ISBN);
+                bookSet.Add(book.Name + book.ISBN);
             }
 
             foreach (HoldingList holdingList in holdingLists)
@@ -42,9 +43,9 @@ namespace SILS.Console
                 libraries.AddRange(LibraryAPI.Instance.LoadLibraries(i));
             }
             foreach (var library in libraries)
-                for (int i = 0; i < Constant.targetLibraries.Length; i++)
+                for (int i = 0; i < Constant.TargetLibraries.Length; i++)
                 {
-                    if (library.Name == Constant.targetLibraries[i])
+                    if (library.Name == Constant.TargetLibraries[i])
                     {
                         System.Console.WriteLine($"{library.LocationId[0]} / {library.LocationId[1]} / {library.Name}"); // Insert 확인용
 
@@ -54,10 +55,10 @@ namespace SILS.Console
                 }
             #endregion
 
-
-            for (int target = 11; target >= 0; target--)
+            #region//책,홀딩리스트 입력
+            for (int target = 16; target >= 0; target--)
             {
-                using (var stream = File.Open($@"C:\\git\\SILS\\BookData\\{Constant.targetLibraries[target]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
+                using (var stream = File.Open($@"BookData\{Constant.TargetLibraries[target]} 장서 대출목록 (2020년 06월).xlsx", FileMode.Open, FileAccess.Read))
                 {
                     // Auto-detect format, supports:
                     //  - Binary Excel files (2.0-2003 format; *.xls)
@@ -65,108 +66,75 @@ namespace SILS.Console
                     using (var reader = ExcelReaderFactory.CreateReader(stream))
                     {
                         // Choose one of either 1 or 2:
-
-                        // 1. Use the reader methods
-                        do
+                        reader.Read();
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                // reader.GetDouble(0);
-                            }
-                        } while (reader.NextResult());
+                            Book book = ReadBook(reader);
 
-                        // 2. Use the AsDataSet extension method
-                        var result = reader.AsDataSet();
-
-                        
-                        int i = 1;
-                        while (true)
-                        {
-                            Book book = new Book();
-                            book.Name = result.Tables[0].Rows[i][1].ToString();
-                            book.Author = result.Tables[0].Rows[i][2].ToString().Replace(";", "") == "" ? "=" : result.Tables[0].Rows[i][2].ToString().Replace(";", "");
-                            book.Publisher = result.Tables[0].Rows[i][3].ToString() == "" ? "=" : result.Tables[0].Rows[i][3].ToString();
-                            book.PublicationYear = result.Tables[0].Rows[i][4].ToString();
-                            book.ISBN = result.Tables[0].Rows[i][5].ToString();
-                            try
-                            {
-                                book.KDCId = 'K' + result.Tables[0].Rows[i][9].ToString().Substring(0, 3);
-                            }
-                            catch
-                            {
-                                book.KDCId = "K1000";
-                            }
                             string nameWithISBN = book.Name + book.ISBN;
 
-                            if (!bookEntity.Contains(nameWithISBN))
+                            if (!bookSet.Contains(nameWithISBN))
                             {
-                                bookEntity.Add(nameWithISBN);
+                                bookSet.Add(nameWithISBN);
 
-                                System.Console.WriteLine($"책 들어간다{target} : {i} / {book.Name} / {book.Author} / {book.Publisher}"); // Insert 확인용
+                                Debug.WriteLine($"책 들어간다{target} : {reader.GetInt32(0)} / {book.Name} / {book.Author} / {book.Publisher}"); // Insert 확인용
                                 DataRepository.Book.Insert(book);
                             }
 
-                            HoldingList holdingList = new HoldingList();
-                            holdingList.LibraryId = DataRepository.Library.GetName(Constant.targetLibraries[target]).LibraryId;
-                            holdingList.BookId = DataRepository.Book.GetbyISBN(book.ISBN).BookId;
-                            holdingList.Count = int.Parse(result.Tables[0].Rows[i][10].ToString());
-                            holdingList.ReceiptDate = result.Tables[0].Rows[i][12].ToString();
-                            holdingList.Classification = book.KDCId == "K1000" ? true : false;
+                            HoldingList holdingList = ReadHoldingList(reader,book,target);
 
-                            //------------------------------------------
                             string bookidWithLibraryid = holdingList.LibraryId + holdingList.BookId.ToString();
+
                             if (!holdingListEntity.Contains(bookidWithLibraryid))
                             {
                                 holdingListEntity.Add(bookidWithLibraryid);
-                                System.Console.WriteLine($"홀딩리스트{target} : {i} / {holdingList.BookId} /         {holdingList.LibraryId}");
+                                Debug.WriteLine($" 홀딩리스트{target} : {reader.GetInt32(0)} / {holdingList.BookId} /         {holdingList.LibraryId}");
                                 DataRepository.HoldingList.Insert(holdingList);
                             }
 
-                            //레거시 코드(Too many query requested)
-
-                            /*if (DataRepository.HoldingList.Get(holdingList.LibraryId, holdingList.BookId) == null)
-                            {
-                                DataRepository.HoldingList.Insert(holdingList);
-                                System.Console.WriteLine($"{i} / {book.Name} / {book.KDCId} / {holdingList.Library}");
-                            }*/
-
-                            // The result of each spreadsheet is in result.Tables
-                            i++;
-                            try
-                            {
-                                if (result.Tables[0].Rows[i][0] == null)
-                                {
-                                    System.Console.WriteLine("\n끝");
-                                    break;
-                                }
-                            }
-                            catch (IndexOutOfRangeException e)
-                            {
-                                System.Console.WriteLine("\n끝");
-                                break;
-                            }
                         }
+
+                        Debug.WriteLine("\n끝");
                     }
                 }
-               
-
-                /*int select = 0;
-                System.Console.WriteLine("원하는 기능을 선택하세요.\n도서관 최신화 => 1\t 종료=> 다른키");
-
-                select = int.Parse(System.Console.ReadLine());
-                if (select == 1)
-                {
-                    
-                }*/
-                //도서관 최신화 console (구현 중)
-
-
             }
+            #endregion
+        }
 
+        private static Book ReadBook(IExcelDataReader reader)
+        {
+            Book book = new Book();
+            
+            book.Name = reader.GetString(1);
+            book.Author = reader.GetString(2).CleanNULL();
+            book.Publisher = reader.GetString(3).CleanNULL();
+            book.PublicationYear = reader.GetString(4).CleanNULL();
+            book.ISBN = reader.GetString(5);
+            try
+            {
+                book.KDCId = 'K' + reader.GetString(9).Substring(0, 3);
+            }
+            catch
+            {
+                book.KDCId = "K1000";
+            }
+            
+            return book;
         }
 
 
+        private static HoldingList ReadHoldingList(IExcelDataReader reader, Book book, int target)
+        {
+            HoldingList holdingList = new HoldingList();
 
+            holdingList.LibraryId = DataRepository.Library.GetName(Constant.TargetLibraries[target]).LibraryId;
+            holdingList.BookId = DataRepository.Book.GetbyISBN(book.ISBN).BookId;
+            holdingList.Count = reader.GetInt32(10);
+            holdingList.ReceiptDate = reader.GetString(12).CleanNULL();
+            holdingList.Classification = book.KDCId == "K1000" ? true : false;
+            
+            return holdingList;
+        }
         #region // CSV Legacy Code  마크다운용
 
 
@@ -210,7 +178,5 @@ namespace SILS.Console
             return books;
         }*/
         #endregion
-
     }
-
 }

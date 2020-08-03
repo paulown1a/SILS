@@ -16,6 +16,7 @@ namespace SILS.Data.Tests
         {
             Code code1 = DataRepository.Code.GetByNameAndUpper("서울");
             Assert.AreEqual(code1.CodeId,"L100");
+
             Code code2 = DataRepository.Code.GetByNameAndUpper("강남구", code1.CodeId);
             Assert.AreEqual(code2.CodeId,"L101");
         }
