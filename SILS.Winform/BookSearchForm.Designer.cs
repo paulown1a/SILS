@@ -36,7 +36,6 @@ namespace SILS.Winform
             this.btnLibraryList = new System.Windows.Forms.Button();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.pnSimpleSearch = new System.Windows.Forms.Panel();
-            this.pnSimpleSearchBar = new System.Windows.Forms.Panel();
             this.txbSimpleName = new DevExpress.XtraEditors.TextEdit();
             this.chbUnclicked = new System.Windows.Forms.CheckBox();
             this.btnSimpleSearch = new DevExpress.XtraEditors.SimpleButton();
@@ -49,7 +48,6 @@ namespace SILS.Winform
             ((System.ComponentModel.ISupportInitialize)(this.pnSearch)).BeginInit();
             this.pnSearch.SuspendLayout();
             this.pnSimpleSearch.SuspendLayout();
-            this.pnSimpleSearchBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txbSimpleName.Properties)).BeginInit();
             this.pnDetailSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txbName.Properties)).BeginInit();
@@ -73,11 +71,10 @@ namespace SILS.Winform
             // 
             this.pnSearch.Controls.Add(this.btnLibraryList);
             this.pnSearch.Controls.Add(this.lblTitle);
-            this.pnSearch.Controls.Add(this.pnSimpleSearch);
-            this.pnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSearch.Location = new System.Drawing.Point(0, 0);
             this.pnSearch.Name = "pnSearch";
-            this.pnSearch.Size = new System.Drawing.Size(807, 445);
+            this.pnSearch.Size = new System.Drawing.Size(807, 76);
             this.pnSearch.TabIndex = 2;
             // 
             // btnLibraryList
@@ -105,27 +102,18 @@ namespace SILS.Winform
             // 
             // pnSimpleSearch
             // 
-            this.pnSimpleSearch.Controls.Add(this.pnSimpleSearchBar);
-            this.pnSimpleSearch.Controls.Add(this.pnDetailSearch);
+            this.pnSimpleSearch.Controls.Add(this.txbSimpleName);
+            this.pnSimpleSearch.Controls.Add(this.chbUnclicked);
+            this.pnSimpleSearch.Controls.Add(this.btnSimpleSearch);
             this.pnSimpleSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnSimpleSearch.Location = new System.Drawing.Point(2, 2);
+            this.pnSimpleSearch.Location = new System.Drawing.Point(0, 76);
             this.pnSimpleSearch.Name = "pnSimpleSearch";
-            this.pnSimpleSearch.Size = new System.Drawing.Size(803, 441);
+            this.pnSimpleSearch.Size = new System.Drawing.Size(807, 271);
             this.pnSimpleSearch.TabIndex = 6;
-            // 
-            // pnSimpleSearchBar
-            // 
-            this.pnSimpleSearchBar.Controls.Add(this.txbSimpleName);
-            this.pnSimpleSearchBar.Controls.Add(this.chbUnclicked);
-            this.pnSimpleSearchBar.Controls.Add(this.btnSimpleSearch);
-            this.pnSimpleSearchBar.Location = new System.Drawing.Point(3, 75);
-            this.pnSimpleSearchBar.Name = "pnSimpleSearchBar";
-            this.pnSimpleSearchBar.Size = new System.Drawing.Size(803, 282);
-            this.pnSimpleSearchBar.TabIndex = 3;
             // 
             // txbSimpleName
             // 
-            this.txbSimpleName.Location = new System.Drawing.Point(44, 59);
+            this.txbSimpleName.Location = new System.Drawing.Point(44, 97);
             this.txbSimpleName.Name = "txbSimpleName";
             this.txbSimpleName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbSimpleName.Properties.Appearance.Options.UseFont = true;
@@ -138,7 +126,7 @@ namespace SILS.Winform
             // chbUnclicked
             // 
             this.chbUnclicked.AutoSize = true;
-            this.chbUnclicked.Location = new System.Drawing.Point(600, 105);
+            this.chbUnclicked.Location = new System.Drawing.Point(600, 143);
             this.chbUnclicked.Name = "chbUnclicked";
             this.chbUnclicked.Size = new System.Drawing.Size(113, 22);
             this.chbUnclicked.TabIndex = 2;
@@ -150,7 +138,7 @@ namespace SILS.Winform
             // 
             this.btnSimpleSearch.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSimpleSearch.Appearance.Options.UseFont = true;
-            this.btnSimpleSearch.Location = new System.Drawing.Point(660, 56);
+            this.btnSimpleSearch.Location = new System.Drawing.Point(660, 94);
             this.btnSimpleSearch.Name = "btnSimpleSearch";
             this.btnSimpleSearch.Size = new System.Drawing.Size(95, 39);
             this.btnSimpleSearch.TabIndex = 1;
@@ -165,9 +153,10 @@ namespace SILS.Winform
             this.pnDetailSearch.Controls.Add(this.chbClicked);
             this.pnDetailSearch.Controls.Add(this.txbPublisher);
             this.pnDetailSearch.Controls.Add(this.txbAuthor);
-            this.pnDetailSearch.Location = new System.Drawing.Point(2, 78);
+            this.pnDetailSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnDetailSearch.Location = new System.Drawing.Point(0, 76);
             this.pnDetailSearch.Name = "pnDetailSearch";
-            this.pnDetailSearch.Size = new System.Drawing.Size(803, 362);
+            this.pnDetailSearch.Size = new System.Drawing.Size(807, 271);
             this.pnDetailSearch.TabIndex = 3;
             // 
             // txbName
@@ -233,7 +222,9 @@ namespace SILS.Winform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 445);
+            this.ClientSize = new System.Drawing.Size(807, 347);
+            this.Controls.Add(this.pnSimpleSearch);
+            this.Controls.Add(this.pnDetailSearch);
             this.Controls.Add(this.pnSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -242,8 +233,7 @@ namespace SILS.Winform
             ((System.ComponentModel.ISupportInitialize)(this.pnSearch)).EndInit();
             this.pnSearch.ResumeLayout(false);
             this.pnSimpleSearch.ResumeLayout(false);
-            this.pnSimpleSearchBar.ResumeLayout(false);
-            this.pnSimpleSearchBar.PerformLayout();
+            this.pnSimpleSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txbSimpleName.Properties)).EndInit();
             this.pnDetailSearch.ResumeLayout(false);
             this.pnDetailSearch.PerformLayout();
@@ -273,7 +263,6 @@ namespace SILS.Winform
         private DevExpress.XtraEditors.TextEdit txbSimpleName;
         private DevExpress.XtraEditors.SimpleButton btnSimpleSearch;
         private System.Windows.Forms.CheckBox chbUnclicked;
-        private System.Windows.Forms.Panel pnSimpleSearchBar;
     }
 }
 
