@@ -33,6 +33,7 @@ namespace SILS.Winform
         {
             this.btnDetailSearch = new DevExpress.XtraEditors.SimpleButton();
             this.pnSearch = new DevExpress.XtraEditors.PanelControl();
+            this.btnReportedList = new System.Windows.Forms.Button();
             this.btnLibraryList = new System.Windows.Forms.Button();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.pnSimpleSearch = new System.Windows.Forms.Panel();
@@ -69,6 +70,7 @@ namespace SILS.Winform
             // 
             // pnSearch
             // 
+            this.pnSearch.Controls.Add(this.btnReportedList);
             this.pnSearch.Controls.Add(this.btnLibraryList);
             this.pnSearch.Controls.Add(this.lblTitle);
             this.pnSearch.Dock = System.Windows.Forms.DockStyle.Top;
@@ -77,12 +79,23 @@ namespace SILS.Winform
             this.pnSearch.Size = new System.Drawing.Size(807, 87);
             this.pnSearch.TabIndex = 2;
             // 
+            // btnReportedList
+            // 
+            this.btnReportedList.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.btnReportedList.Location = new System.Drawing.Point(515, 12);
+            this.btnReportedList.Name = "btnReportedList";
+            this.btnReportedList.Size = new System.Drawing.Size(130, 40);
+            this.btnReportedList.TabIndex = 8;
+            this.btnReportedList.Text = "정정신청 목록";
+            this.btnReportedList.UseVisualStyleBackColor = true;
+            this.btnReportedList.Click += new System.EventHandler(this.btnReportedList_Click);
+            // 
             // btnLibraryList
             // 
             this.btnLibraryList.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.btnLibraryList.Location = new System.Drawing.Point(686, 12);
+            this.btnLibraryList.Location = new System.Drawing.Point(669, 12);
             this.btnLibraryList.Name = "btnLibraryList";
-            this.btnLibraryList.Size = new System.Drawing.Size(109, 40);
+            this.btnLibraryList.Size = new System.Drawing.Size(126, 40);
             this.btnLibraryList.TabIndex = 7;
             this.btnLibraryList.Text = "지원 도서관";
             this.btnLibraryList.UseVisualStyleBackColor = true;
@@ -264,6 +277,7 @@ namespace SILS.Winform
         private DevExpress.XtraEditors.TextEdit txbSimpleName;
         private DevExpress.XtraEditors.SimpleButton btnSimpleSearch;
         private System.Windows.Forms.CheckBox chbUnclicked;
+        private System.Windows.Forms.Button btnReportedList;
     }
 }
 

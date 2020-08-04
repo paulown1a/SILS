@@ -131,6 +131,12 @@
     <Compile Include="BookListForm.Designer.cs">
       <DependentUpon>BookListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportedForm.Designer.cs">
+      <DependentUpon>ReportedForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BookDetailForm.resx">
       <DependentUpon>BookDetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +165,9 @@
     </Compile>
     <EmbeddedResource Include="BookListForm.resx">
       <DependentUpon>BookListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportedForm.resx">
+      <DependentUpon>ReportedForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />

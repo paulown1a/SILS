@@ -135,3 +135,4 @@ C:\git\SILS\SILS.Winform\bin\Debug\de\DevExpress.Xpo.v19.1.resources.dll
 C:\git\SILS\SILS.Winform\bin\Debug\es\DevExpress.Xpo.v19.1.resources.dll
 C:\git\SILS\SILS.Winform\bin\Debug\ja\DevExpress.Xpo.v19.1.resources.dll
 C:\git\SILS\SILS.Winform\bin\Debug\ru\DevExpress.Xpo.v19.1.resources.dll
+C:\git\SILS\SILS.Winform\obj\Debug\SILS.Winform.ReportedForm.resources

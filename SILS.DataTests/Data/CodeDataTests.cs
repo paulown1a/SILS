@@ -20,5 +20,12 @@ namespace SILS.Data.Tests
             Code code2 = DataRepository.Code.GetByNameAndUpper("강남구", code1.CodeId);
             Assert.AreEqual(code2.CodeId,"L101");
         }
+
+        [TestMethod()]
+        public void GetByLibraryId()
+        {
+            var reports = DataRepository.Report.GetByLibraryId("111003");
+            Assert.IsNotNull(reports);
+        }
     }
 }

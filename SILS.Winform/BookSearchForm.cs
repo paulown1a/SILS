@@ -123,5 +123,10 @@ namespace SILS.Winform
             txbPublishedYear.Text = null;
         }
 
+        private void btnReportedList_Click(object sender, EventArgs e)
+        {
+            ReportedForm reportedForm = new ReportedForm();
+            reportedForm.ShowDialog();
+        }
     }
 }
