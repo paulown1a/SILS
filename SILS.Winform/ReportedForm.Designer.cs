@@ -33,6 +33,7 @@
             this.gdReportList = new DevExpress.XtraGrid.GridControl();
             this.bdsReport = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colReportCodeName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbReport = new System.Windows.Forms.CheckBox();
             this.cbLibrary = new System.Windows.Forms.CheckBox();
@@ -45,7 +46,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.colBookName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colReportCodeName = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdReportList)).BeginInit();
@@ -89,10 +89,20 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colBookName,
-            this.colReportCodeName});
+            this.colReportCodeName,
+            this.colBookName});
             this.gridView1.GridControl = this.gdReportList;
             this.gridView1.Name = "gridView1";
+            // 
+            // colReportCodeName
+            // 
+            this.colReportCodeName.Caption = "오류 종류";
+            this.colReportCodeName.FieldName = "ReportCodeName";
+            this.colReportCodeName.MinWidth = 25;
+            this.colReportCodeName.Name = "colReportCodeName";
+            this.colReportCodeName.Visible = true;
+            this.colReportCodeName.VisibleIndex = 1;
+            this.colReportCodeName.Width = 94;
             // 
             // panel1
             // 
@@ -196,21 +206,13 @@
             // 
             // colBookName
             // 
+            this.colBookName.Caption = "책 이름";
             this.colBookName.FieldName = "BookName";
             this.colBookName.MinWidth = 25;
             this.colBookName.Name = "colBookName";
             this.colBookName.Visible = true;
             this.colBookName.VisibleIndex = 0;
             this.colBookName.Width = 94;
-            // 
-            // colReportCodeName
-            // 
-            this.colReportCodeName.FieldName = "ReportCodeName";
-            this.colReportCodeName.MinWidth = 25;
-            this.colReportCodeName.Name = "colReportCodeName";
-            this.colReportCodeName.Visible = true;
-            this.colReportCodeName.VisibleIndex = 1;
-            this.colReportCodeName.Width = 94;
             // 
             // ReportedForm
             // 
@@ -253,7 +255,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraGrid.Columns.GridColumn colBookName;
         private DevExpress.XtraGrid.Columns.GridColumn colReportCodeName;
+        private DevExpress.XtraGrid.Columns.GridColumn colBookName;
     }
 }

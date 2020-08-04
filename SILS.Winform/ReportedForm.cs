@@ -16,28 +16,36 @@ namespace SILS.Winform
         public ReportedForm()
         {
             InitializeComponent();
-            bdsLibraryReported.DataSource = DataRepository.Library.GetAll();
-            bdsCodeReported.DataSource = DataRepository.Code.GetAllReports();
-            bdsReport.DataSource = DataRepository.Report.GetWithReported();
         }
+        
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (cbLibrary.Checked == false && cbReport.Checked == false)
+            bdsReport.DataSource = DataRepository.Report.GetByLibraryNType(cbbLibrary.SelectedValue.ToString(), cbbReportType.SelectedValue.ToString());
+
+           /* if (cbLibrary.Checked == false && cbReport.Checked == false)
                 bdsReport.DataSource = DataRepository.Report.GetWithReported();
 
-            else if(cbLibrary.Checked == false && cbReport.Checked != false)
+            else if (cbLibrary.Checked == false && cbReport.Checked != false)
                 bdsReport.DataSource = DataRepository.Report.GetByReportType(cbbReportType.SelectedValue.ToString());
 
             else if (cbLibrary.Checked != false && cbReport.Checked == false)
-                bdsReport.DataSource = DataRepository.Report.GetByLibraryId(cbbLibrary.SelectedValue.ToString());
-
+                //    bdsReport.DataSource = DataRepository.Report.GetByLibraryId(cbbLibrary.SelectedValue.ToString());
+                ;
             else
-                bdsReport.DataSource = DataRepository.Report.GetByTypeNId(
-                    cbbReportType.SelectedValue.ToString(),
-                    cbbLibrary.SelectedValue.ToString()
-                    );
+                ;
+                //    bdsReport.DataSource = DataRepository.Report.GetByTypeNId(
+                //cbbReportType.SelectedValue.ToString(),
+                //    cbbLibrary.SelectedValue.ToString()
+                //    );
+*/
+        }
 
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            bdsLibraryReported.DataSource = DataRepository.Library.GetAll();
+            bdsCodeReported.DataSource = DataRepository.Code.GetAllReports();
         }
     }
 }

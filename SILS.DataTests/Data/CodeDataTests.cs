@@ -24,7 +24,7 @@ namespace SILS.Data.Tests
         [TestMethod()]
         public void GetByLibraryId()
         {
-            var reports = DataRepository.Report.GetByLibraryId("111003");
+            var reports = DataRepository.Report.GetByLibraryNType("111003","E001");
             Assert.IsNotNull(reports);
         }
     }
