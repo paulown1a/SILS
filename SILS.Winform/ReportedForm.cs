@@ -21,7 +21,7 @@ namespace SILS.Winform
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            bdsReport.DataSource = DataRepository.Report.GetByLibraryNType(cbbLibrary.SelectedValue.ToString(), cbbReportType.SelectedValue.ToString());
+            bdsReport.DataSource = DataRepository.Report.GetByLibraryNType(cbLibrary.Checked? cbbLibrary.SelectedValue.ToString():null, cbReport.Checked? cbbReportType.SelectedValue.ToString():null).FirstOrDefault();
 
            /* if (cbLibrary.Checked == false && cbReport.Checked == false)
                 bdsReport.DataSource = DataRepository.Report.GetWithReported();
