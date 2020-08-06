@@ -11,14 +11,14 @@
 ## 기능
   ### 1. 도서 검색기능 및 상세 검색기능
   
-![Serch Form](SerchForm.png)
+![Search Form](Documents/SearchForm.png)
 
-![Seach Detail](SeachDetail.png)
+![Search Detail](Documents/SearchDetail.png)
 
-![Book List](BookList.png)
+![Book List](Documents/BookList.png)
   ### 2. 도서를 보유한 도서관 목록 확인기능
 
-![Book Detail Impormation](BookDetailImpormation.png)
+![Book Detail Impormation](Documents/BookDetailImpormation.png)
   ### 3. 상세정보를 통한 도서 정보확인 및 보유 도서관 사이트 이동
 
 	
@@ -29,7 +29,7 @@
 
 ## 언어
 
-* C# 3.0+
+* C#
 
 ## FrameWork
 
@@ -51,15 +51,15 @@
 
 # DataBase Schema
 
-![Data Base Schema](DataBaseSchema.png)
+![Data Base Schema](Documents/DataBaseSchema.png)
 
 
 
 # Point of Interest
 
-![Post Man](PostMan.png)
+![Post Man](Documents/PostMan.png)
 * 정보마루의 공공 API를 이용하여 도서관의 정보를 코드화 하여 DB에 입력하였다.
-![A P I도서관코드](API도서관코드.png)
+![A P I도서관코드](Documents/API도서관코드.png)
 
 
 
@@ -72,7 +72,7 @@
 
 * CSV파일을 이용하여 대체하려 했으나 파싱과정중 텍스트에 특수기호(,?,!,...)가 포함될 경우 문제가 발생하였다.
 이 문제를 해결하고자, 다음과 같은 코드를 작성 하였으나, 잦은 쿼리사용으로 인한 느린 처리 속도가 문제가 되었다. 
-![C S V](CSV.png)  
+![C S V](Documents/CSV.png)  
 
 ### 해결방안
  * Excel데이터를 
