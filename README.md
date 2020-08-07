@@ -29,7 +29,7 @@
 
 ## 언어
 
-* C# 3.0+
+* C#
 
 ## FrameWork
 
@@ -50,7 +50,6 @@
 * Postman
 
 # DataBase Schema
-
 ![Data Base Schema](DataBaseSchema.png)
 
 
@@ -75,7 +74,12 @@
 ![C S V](CSV.png)  
 
 ### 해결방안
- * Excel데이터를 
+ * 정보마루에서 제공하는 도서관별 Excel데이터를 Visual Studio에 연결한 뒤 ExcelDataReader 패키지를 이용하여 
+ *데이터를 DB에 연결하게끔 코드를 작성하였다.![Book And Holding List](BookAndHoldingList.png)
+
+* DB에 업로드하는 속도를 줄이기 위해 HashSet을 이용하여 중복되는 정보를 걸러내었으며 그 결과 속도가 비약적으로 상승한 것을 확인했다.
+![Hash Set](HashSet.png)
+
 
 
 
