@@ -29,6 +29,8 @@
 ### 5. 지역별 도서관 검색 가능
 ![Librarylist](readme/librarylist.png)
 
+ 
+
 
 # 사용기술
 
@@ -64,6 +66,9 @@
 ![Post Man](readme/PostMan.png)
 * 정보마루의 공공 API를 이용하여 도서관의 정보를 코드화 하여 DB에 입력하였다.
 ![A P I Library Code](readme/APILibraryCode.png)
+
+* 정보마루의 API를 이용하여 DB에 도서의 표지를 저장하지 않고 상세정보를 통해 도서를 검색할 때 표지 이미지를 불러온다.
+* ![Book Cover](readme/BookCover.png)
 
 
 # Code Review
