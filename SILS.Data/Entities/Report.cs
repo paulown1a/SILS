@@ -10,5 +10,7 @@ namespace SILS.Data
     {
         public string ReportCodeName { get; set; }
         public string BookName { get; set; }
+
+        public string LibraryName { get; set; }
     }
 }

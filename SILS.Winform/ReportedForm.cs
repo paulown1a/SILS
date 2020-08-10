@@ -17,13 +17,13 @@ namespace SILS.Winform
         {
             InitializeComponent();
         }
-        
 
-        private void btnSearch_Click(object sender, EventArgs e)
+
+        /*private void btnSearch_Click(object sender, EventArgs e)
         {
-            bdsReport.DataSource = DataRepository.Report.GetByLibraryNType(cbLibrary.Checked? cbbLibrary.SelectedValue.ToString():null, cbReport.Checked? cbbReportType.SelectedValue.ToString():null).FirstOrDefault();
 
-           /* if (cbLibrary.Checked == false && cbReport.Checked == false)
+
+            if (cbLibrary.Checked == false && cbReport.Checked == false)
                 bdsReport.DataSource = DataRepository.Report.GetWithReported();
 
             else if (cbLibrary.Checked == false && cbReport.Checked != false)
@@ -34,18 +34,28 @@ namespace SILS.Winform
                 ;
             else
                 ;
-                //    bdsReport.DataSource = DataRepository.Report.GetByTypeNId(
-                //cbbReportType.SelectedValue.ToString(),
-                //    cbbLibrary.SelectedValue.ToString()
-                //    );
-*/
-        }
+            //    bdsReport.DataSource = DataRepository.Report.GetByTypeNId(
+            //cbbReportType.SelectedValue.ToString(),
+            //    cbbLibrary.SelectedValue.ToString()
+            //    );
+
+        }*/
 
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
             bdsLibraryReported.DataSource = DataRepository.Library.GetAll();
             bdsCodeReported.DataSource = DataRepository.Code.GetAllReports();
+        }
+
+        private void btnSearchLibrary_Click(object sender, EventArgs e)
+        {
+            bdsReport.DataSource = DataRepository.Report.GetByLibraryId(cbbLibraryId.SelectedValue.ToString());
+        }
+
+        private void btnSearchReportCode_Click(object sender, EventArgs e)
+        {
+            bdsReport.DataSource = DataRepository.Report.GetByReportCodeId(cbbReportedCode.SelectedValue.ToString());
         }
     }
 }

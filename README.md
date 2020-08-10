@@ -11,18 +11,23 @@
 ## 기능
   ### 1. 도서 검색기능 및 상세 검색기능
   
-![Search Form](Documents/SearchForm.png)
+![Serch Form](readme/SerchForm.png)
 
-![Search Detail](Documents/SearchDetail.png)
+![Seach Detail](readme/SeachDetail.png)
+### 2. 도서를 보유한 도서관 목록 확인기능
+![Book List](readme/BookList.png)
+  
+### 3. 상세정보를 통한 도서 정보확인 및 보유 도서관 사이트 이동
+![Book Detail Information](readme/BookDetailInformation.png)
 
-![Book List](Documents/BookList.png)
-  ### 2. 도서를 보유한 도서관 목록 확인기능
+### 4. 도서 정보에 관련된 오류들을 보고하는 화면 구현
+#### -> 오류는 도서관별, 혹은 오류 유형별로 구분 가능
 
-![Book Detail Impormation](Documents/BookDetailImpormation.png)
-  ### 3. 상세정보를 통한 도서 정보확인 및 보유 도서관 사이트 이동
+![Reportsby Error](readme/reportsbyError.png)
+![Reportsby Library](readme/reportsbyLibrary.png)
 
-	
-
+### 5. 지역별 도서관 검색 가능
+![Librarylist](readme/librarylist.png)
 
 
 # 사용기술
@@ -50,17 +55,15 @@
 * Postman
 
 # DataBase Schema
-
-![Data Base Schema](Documents/DataBaseSchema.png)
+![Data Base Schema](readme/DataBaseSchema.png)
 
 
 
 # Point of Interest
 
-![Post Man](Documents/PostMan.png)
+![Post Man](readme/PostMan.png)
 * 정보마루의 공공 API를 이용하여 도서관의 정보를 코드화 하여 DB에 입력하였다.
-![A P I도서관코드](Documents/API도서관코드.png)
-
+![A P I Library Code](readme/APILibraryCode.png)
 
 
 # Code Review
@@ -72,10 +75,16 @@
 
 * CSV파일을 이용하여 대체하려 했으나 파싱과정중 텍스트에 특수기호(,?,!,...)가 포함될 경우 문제가 발생하였다.
 이 문제를 해결하고자, 다음과 같은 코드를 작성 하였으나, 잦은 쿼리사용으로 인한 느린 처리 속도가 문제가 되었다. 
-![C S V](Documents/CSV.png)  
+![C S V Code](readme/CSVCode.png)
 
 ### 해결방안
- * Excel데이터를 
+ * 정보마루에서 제공하는 도서관별 Excel데이터를 Visual Studio에 연결한 뒤 ExcelDataReader 패키지를 이용하여 
+ *데이터를 DB에 연결하게끔 코드를 작성하였다.
+![Book And Holding List](readme/BookAndHoldingList.png)
+
+* DB에 업로드하는 속도를 줄이기 위해 HashSet을 이용하여 중복되는 정보를 걸러내었으며 그 결과 속도가 비약적으로 상승한 것을 확인했다.
+![Hash Set Code](readme/HashSetCode.png)
+
 
 
 
