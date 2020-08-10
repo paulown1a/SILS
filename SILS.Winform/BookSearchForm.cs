@@ -61,19 +61,15 @@ namespace SILS.Winform
         //
         private void chbClicked_CheckedChanged(object sender, EventArgs e)
         {
-            
-            pnSimpleSearchBar.BringToFront();
+            pnSimpleSearch.BringToFront();
             txbName.Text = "도서 검색";
             txbPublisher.Text = "출판사";
             txbAuthor.Text = "저자 검색";
             txbPublishedYear.Text = "출판 연도";
-            
-            
         }
 
         private void txbName_KeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode == Keys.Enter)
                 btnDetailSearch_Click(this, e);
         }
@@ -127,5 +123,10 @@ namespace SILS.Winform
             txbPublishedYear.Text = null;
         }
 
+        private void btnReportedList_Click(object sender, EventArgs e)
+        {
+            ReportedForm reportedForm = new ReportedForm();
+            reportedForm.ShowDialog();
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace SILS.Data
             this.Code1 = new HashSet<Code>();
             this.Libraries = new HashSet<Library>();
             this.Books = new HashSet<Book>();
+            this.Reports = new HashSet<Report>();
         }
     
         public string CodeId { get; set; }
@@ -33,5 +34,7 @@ namespace SILS.Data
         public virtual ICollection<Library> Libraries { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Book> Books { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Report> Reports { get; set; }
     }
 }

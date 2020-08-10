@@ -33,29 +33,28 @@ namespace SILS.Winform
         {
             this.btnDetailSearch = new DevExpress.XtraEditors.SimpleButton();
             this.pnSearch = new DevExpress.XtraEditors.PanelControl();
+            this.btnReportedList = new System.Windows.Forms.Button();
             this.btnLibraryList = new System.Windows.Forms.Button();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.pnSimpleSearch = new System.Windows.Forms.Panel();
+            this.txbSimpleName = new DevExpress.XtraEditors.TextEdit();
+            this.chbUnclicked = new System.Windows.Forms.CheckBox();
+            this.btnSimpleSearch = new DevExpress.XtraEditors.SimpleButton();
             this.pnDetailSearch = new System.Windows.Forms.Panel();
             this.txbName = new DevExpress.XtraEditors.TextEdit();
             this.txbPublishedYear = new DevExpress.XtraEditors.TextEdit();
             this.chbClicked = new System.Windows.Forms.CheckBox();
             this.txbPublisher = new DevExpress.XtraEditors.TextEdit();
             this.txbAuthor = new DevExpress.XtraEditors.TextEdit();
-            this.pnSimpleSearchBar = new System.Windows.Forms.Panel();
-            this.txbSimpleName = new DevExpress.XtraEditors.TextEdit();
-            this.chbUnclicked = new System.Windows.Forms.CheckBox();
-            this.btnSimpleSearch = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnSearch)).BeginInit();
             this.pnSearch.SuspendLayout();
             this.pnSimpleSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txbSimpleName.Properties)).BeginInit();
             this.pnDetailSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txbName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txbPublishedYear.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txbPublisher.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txbAuthor.Properties)).BeginInit();
-            this.pnSimpleSearchBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txbSimpleName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDetailSearch
@@ -71,21 +70,32 @@ namespace SILS.Winform
             // 
             // pnSearch
             // 
+            this.pnSearch.Controls.Add(this.btnReportedList);
             this.pnSearch.Controls.Add(this.btnLibraryList);
             this.pnSearch.Controls.Add(this.lblTitle);
-            this.pnSearch.Controls.Add(this.pnSimpleSearch);
-            this.pnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSearch.Location = new System.Drawing.Point(0, 0);
             this.pnSearch.Name = "pnSearch";
-            this.pnSearch.Size = new System.Drawing.Size(807, 445);
+            this.pnSearch.Size = new System.Drawing.Size(807, 87);
             this.pnSearch.TabIndex = 2;
+            // 
+            // btnReportedList
+            // 
+            this.btnReportedList.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.btnReportedList.Location = new System.Drawing.Point(515, 12);
+            this.btnReportedList.Name = "btnReportedList";
+            this.btnReportedList.Size = new System.Drawing.Size(130, 40);
+            this.btnReportedList.TabIndex = 8;
+            this.btnReportedList.Text = "정정신청 목록";
+            this.btnReportedList.UseVisualStyleBackColor = true;
+            this.btnReportedList.Click += new System.EventHandler(this.btnReportedList_Click);
             // 
             // btnLibraryList
             // 
             this.btnLibraryList.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.btnLibraryList.Location = new System.Drawing.Point(686, 12);
+            this.btnLibraryList.Location = new System.Drawing.Point(669, 12);
             this.btnLibraryList.Name = "btnLibraryList";
-            this.btnLibraryList.Size = new System.Drawing.Size(109, 40);
+            this.btnLibraryList.Size = new System.Drawing.Size(126, 40);
             this.btnLibraryList.TabIndex = 7;
             this.btnLibraryList.Text = "지원 도서관";
             this.btnLibraryList.UseVisualStyleBackColor = true;
@@ -105,12 +115,48 @@ namespace SILS.Winform
             // 
             // pnSimpleSearch
             // 
-            this.pnSimpleSearch.Controls.Add(this.pnSimpleSearchBar);
-            this.pnSimpleSearch.Controls.Add(this.pnDetailSearch);
-            this.pnSimpleSearch.Location = new System.Drawing.Point(2, 77);
+            this.pnSimpleSearch.Controls.Add(this.txbSimpleName);
+            this.pnSimpleSearch.Controls.Add(this.chbUnclicked);
+            this.pnSimpleSearch.Controls.Add(this.btnSimpleSearch);
+            this.pnSimpleSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnSimpleSearch.Location = new System.Drawing.Point(0, 87);
             this.pnSimpleSearch.Name = "pnSimpleSearch";
-            this.pnSimpleSearch.Size = new System.Drawing.Size(803, 366);
+            this.pnSimpleSearch.Size = new System.Drawing.Size(807, 358);
             this.pnSimpleSearch.TabIndex = 6;
+            // 
+            // txbSimpleName
+            // 
+            this.txbSimpleName.Location = new System.Drawing.Point(44, 59);
+            this.txbSimpleName.Name = "txbSimpleName";
+            this.txbSimpleName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbSimpleName.Properties.Appearance.Options.UseFont = true;
+            this.txbSimpleName.Properties.NullText = "도서 검색";
+            this.txbSimpleName.Size = new System.Drawing.Size(589, 36);
+            this.txbSimpleName.TabIndex = 0;
+            this.txbSimpleName.Click += new System.EventHandler(this.txbSimpleName_Click);
+            this.txbSimpleName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbSimpleName_KeyDown);
+            // 
+            // chbUnclicked
+            // 
+            this.chbUnclicked.AutoSize = true;
+            this.chbUnclicked.Location = new System.Drawing.Point(600, 105);
+            this.chbUnclicked.Name = "chbUnclicked";
+            this.chbUnclicked.Size = new System.Drawing.Size(113, 22);
+            this.chbUnclicked.TabIndex = 2;
+            this.chbUnclicked.Text = "상세정보 검색";
+            this.chbUnclicked.UseVisualStyleBackColor = true;
+            this.chbUnclicked.CheckedChanged += new System.EventHandler(this.chbUnclicked_CheckedChanged);
+            // 
+            // btnSimpleSearch
+            // 
+            this.btnSimpleSearch.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSimpleSearch.Appearance.Options.UseFont = true;
+            this.btnSimpleSearch.Location = new System.Drawing.Point(660, 56);
+            this.btnSimpleSearch.Name = "btnSimpleSearch";
+            this.btnSimpleSearch.Size = new System.Drawing.Size(95, 39);
+            this.btnSimpleSearch.TabIndex = 1;
+            this.btnSimpleSearch.Text = "Search";
+            this.btnSimpleSearch.Click += new System.EventHandler(this.btnSimpleSearch_Click);
             // 
             // pnDetailSearch
             // 
@@ -121,9 +167,9 @@ namespace SILS.Winform
             this.pnDetailSearch.Controls.Add(this.txbPublisher);
             this.pnDetailSearch.Controls.Add(this.txbAuthor);
             this.pnDetailSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnDetailSearch.Location = new System.Drawing.Point(0, 0);
+            this.pnDetailSearch.Location = new System.Drawing.Point(0, 87);
             this.pnDetailSearch.Name = "pnDetailSearch";
-            this.pnDetailSearch.Size = new System.Drawing.Size(803, 366);
+            this.pnDetailSearch.Size = new System.Drawing.Size(807, 358);
             this.pnDetailSearch.TabIndex = 3;
             // 
             // txbName
@@ -185,73 +231,30 @@ namespace SILS.Winform
             this.txbAuthor.Click += new System.EventHandler(this.txbAuthor_Click);
             this.txbAuthor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbAuthor_KeyDown);
             // 
-            // pnSimpleSearchBar
-            // 
-            this.pnSimpleSearchBar.Controls.Add(this.txbSimpleName);
-            this.pnSimpleSearchBar.Controls.Add(this.chbUnclicked);
-            this.pnSimpleSearchBar.Controls.Add(this.btnSimpleSearch);
-            this.pnSimpleSearchBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnSimpleSearchBar.Location = new System.Drawing.Point(0, 0);
-            this.pnSimpleSearchBar.Name = "pnSimpleSearchBar";
-            this.pnSimpleSearchBar.Size = new System.Drawing.Size(803, 366);
-            this.pnSimpleSearchBar.TabIndex = 3;
-            // 
-            // txbSimpleName
-            // 
-            this.txbSimpleName.Location = new System.Drawing.Point(44, 59);
-            this.txbSimpleName.Name = "txbSimpleName";
-            this.txbSimpleName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSimpleName.Properties.Appearance.Options.UseFont = true;
-            this.txbSimpleName.Properties.NullText = "도서 검색";
-            this.txbSimpleName.Size = new System.Drawing.Size(589, 36);
-            this.txbSimpleName.TabIndex = 0;
-            this.txbSimpleName.Click += new System.EventHandler(this.txbSimpleName_Click);
-            this.txbSimpleName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbSimpleName_KeyDown);
-            // 
-            // chbUnclicked
-            // 
-            this.chbUnclicked.AutoSize = true;
-            this.chbUnclicked.Location = new System.Drawing.Point(520, 114);
-            this.chbUnclicked.Name = "chbUnclicked";
-            this.chbUnclicked.Size = new System.Drawing.Size(113, 22);
-            this.chbUnclicked.TabIndex = 2;
-            this.chbUnclicked.Text = "상세정보 검색";
-            this.chbUnclicked.UseVisualStyleBackColor = true;
-            this.chbUnclicked.CheckedChanged += new System.EventHandler(this.chbUnclicked_CheckedChanged);
-            // 
-            // btnSimpleSearch
-            // 
-            this.btnSimpleSearch.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSimpleSearch.Appearance.Options.UseFont = true;
-            this.btnSimpleSearch.Location = new System.Drawing.Point(660, 56);
-            this.btnSimpleSearch.Name = "btnSimpleSearch";
-            this.btnSimpleSearch.Size = new System.Drawing.Size(95, 39);
-            this.btnSimpleSearch.TabIndex = 1;
-            this.btnSimpleSearch.Text = "Search";
-            this.btnSimpleSearch.Click += new System.EventHandler(this.btnSimpleSearch_Click);
-            // 
             // BookSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 445);
+            this.Controls.Add(this.pnSimpleSearch);
+            this.Controls.Add(this.pnDetailSearch);
             this.Controls.Add(this.pnSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BookSearchForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "도서 검색";
             ((System.ComponentModel.ISupportInitialize)(this.pnSearch)).EndInit();
             this.pnSearch.ResumeLayout(false);
             this.pnSimpleSearch.ResumeLayout(false);
+            this.pnSimpleSearch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txbSimpleName.Properties)).EndInit();
             this.pnDetailSearch.ResumeLayout(false);
             this.pnDetailSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txbName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txbPublishedYear.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txbPublisher.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txbAuthor.Properties)).EndInit();
-            this.pnSimpleSearchBar.ResumeLayout(false);
-            this.pnSimpleSearchBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txbSimpleName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -274,7 +277,7 @@ namespace SILS.Winform
         private DevExpress.XtraEditors.TextEdit txbSimpleName;
         private DevExpress.XtraEditors.SimpleButton btnSimpleSearch;
         private System.Windows.Forms.CheckBox chbUnclicked;
-        private System.Windows.Forms.Panel pnSimpleSearchBar;
+        private System.Windows.Forms.Button btnReportedList;
     }
 }
 

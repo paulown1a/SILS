@@ -14,6 +14,9 @@
         <EntityTypeShape EntityType="SILSModel.HoldingList" Width="1.5" PointX="5.25" PointY="3" />
         <AssociationConnector Association="SILSModel.FK_HoldingList_Book" />
         <AssociationConnector Association="SILSModel.FK_HoldingList_Library" />
+        <EntityTypeShape EntityType="SILSModel.Report" Width="1.5" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="SILSModel.FK_Error_Book" />
+        <AssociationConnector Association="SILSModel.FK_Error_Code" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

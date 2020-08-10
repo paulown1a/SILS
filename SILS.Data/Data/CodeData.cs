@@ -27,5 +27,16 @@ namespace SILS.Data
                         select x;
             return qurey.ToList();
         }
+
+        public List<Code> GetAllReports()
+        {
+            SILSEntities context = CreateContext();
+            var query = from x in context.Codes
+                        where x.CodeId.Contains("E")
+                        select x;
+            return query.ToList();
+        }
+
+
     }
 }

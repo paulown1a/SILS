@@ -20,6 +20,7 @@ namespace SILS.Winform
 {
     public partial class BookDetailForm : Form
     {
+        int bookId;
         private BookDetailForm()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace SILS.Winform
 
         public BookDetailForm(Book book) : this()
         {
+            bookId = book.BookId;
             lblName.Text = book.Name;
             lblAuthor.Text = book.Author;
             lblPublisher.Text = book.Publisher;
@@ -46,6 +48,12 @@ namespace SILS.Winform
 
             LibraryDetailForm libraryDetailForm = new LibraryDetailForm(library);
             libraryDetailForm.ShowDialog();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            BookReportForm bookReportForm= new BookReportForm(bookId);
+            bookReportForm.ShowDialog();
         }
     }
 }
