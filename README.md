@@ -12,25 +12,32 @@
   ### 1. 도서 검색기능 및 상세 검색기능
   #### 메인화면
 * 도서를 검색한다.
-![Search Form](readme/SearchForm.png)
+![Main Form](readme/MainForm.png)
 * 상세정보 검색에 체크하면 세부사항과 함께 검색할 수 있다.
 ![Search Detail](readme/SearchDetail.png)
 
-### 2. 도서를 보유한 도서관 목록 확인기능
-![Book List](readme/BookList.png)
- * 목록을 더블클릭하면 책에 대한 상세정보 확인이 가능하다.
-### 3. 상세정보를 통한 도서 정보확인 및 보유 도서관 사이트 이동
-![Book Detail Information](readme/BookDetailInformation.png)
-* 도서관 상세정보 확인이 가능하다.
+* 검색된 결과는 리스트 목록으로 출력되며 더블클릭시 책에 대한 상세정보 확인이 가능하다.
+ ![Book List](readme/BookList.png)
+
+* 상세정보창
+ ![Detail Form](readme/DetailForm.png) 
 
 
-![Library Deatail](readme/LibraryDetail.png)
-* 주소를 클릭하면 해당 도서관 사이트로 이동한다.
-### 4. 도서 정보에 관련된 오류들을 보고하는 화면 구현
-#### -> 오류는 도서관별, 혹은 오류 유형별로 구분 가능
+ ### 2. 상세정보를 통한 도서 정보확인 및 보유 도서관 사이트 이동
+ ![Detailoptions](readme/detailoptions.png)
+ * 도서관 상세정보 확인이 가능하다.
+ * 주소를 클릭하면 해당 도서관 사이트로 이동한다.
+ ![Library Deatail](readme/LibraryDetail.png)
+ 
+ * 정정신청 버튼을 눌러 오류 정정신청을 할 수 있다.
+ * ![Errorreport](readme/errorreport.png)
+ ### 3. 도서 정보에 관련된 오류들을 보고하는 화면 구현
+ #### -> 오류는 도서관별, 혹은 오류 유형별로 구분 가능
 
 ![Reportsby Error](readme/reportsbyError.png)
 ![Reportsby Library](readme/reportsbyLibrary.png)
+
+
 
 ### 5. 지역별 도서관 검색 가능
 ![Librarylist](readme/librarylist.png)
@@ -63,7 +70,7 @@
 * Postman
 
 # DataBase Schema
-![Data Base Schema](readme/DataBaseSchema.png)
+![D Bschema](readme/DBschema.png)
 
 
 
@@ -72,6 +79,10 @@
 ![Post Man](readme/PostMan.png)
 * 정보마루의 공공 API를 이용하여 도서관의 정보를 코드화 하여 DB에 입력하였다.
 ![A P I Library Code](readme/APILibraryCode.png)
+
+
+* 오류가 있는 책의 정보를 API화 하여 방출하였다. 이를 통해 중앙도서관에서 오류가 난 책들의 정보를 쉽게 확인 할 수 있도록 하였다.
+* ![Error A P I](readme/ErrorAPI.png)
 
 * 정보마루의 API를 이용하여 DB에 도서의 표지를 저장하지 않고 상세정보를 통해 도서를 검색할 때 표지 이미지를 불러온다.
 * ![Book Cover](readme/BookCover.png)

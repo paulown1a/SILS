@@ -17,6 +17,58 @@ namespace SILS.Data
             return context.Reports.FirstOrDefault(a => a.ReportId == reportId);
         }
 
+        public List<Report> GetAllWithImfomation()
+        {
+            SILSEntities context = CreateContext();
+
+            var query = from x in context.Reports
+                        select new { Report = x, BookName= x.Book.Name, ReportCodeName=x.Code.Name };
+
+            var items = query.ToList();
+            foreach (var item in items)
+            {
+                item.Report.BookName = item.BookName;
+                item.Report.ReportCodeName = item.ReportCodeName;
+            }
+
+            return items.ConvertAll(x => x.Report);
+        }
+
+        public List<Report> GetWithImformation(int bookId)
+        {
+            SILSEntities context = CreateContext();
+
+            var query = from x in context.Reports
+                        where x.BookId == bookId
+                        select new { Report = x, BookName = x.Book.Name, ReportCodeName = x.Code.Name };
+
+            var items = query.ToList();
+            foreach (var item in items)
+            {
+                item.Report.BookName = item.BookName;
+                item.Report.ReportCodeName = item.ReportCodeName;
+            }
+
+            return items.ConvertAll(x => x.Report);
+        }
+        public List<Report> GetWithImformation(string codeId)
+        {
+            SILSEntities context = CreateContext();
+
+            var query = from x in context.Reports
+                        where x.ReportCodeId == codeId
+                        select new { Report = x, BookName = x.Book.Name, ReportCodeName = x.Code.Name };
+
+            var items = query.ToList();
+            foreach (var item in items)
+            {
+                item.Report.BookName = item.BookName;
+                item.Report.ReportCodeName = item.ReportCodeName;
+            }
+
+            return items.ConvertAll(x => x.Report);
+        }
+
         /*public List<Report> GetByReportType(string codeId)
         {
             SILSEntities context = CreateContext();
