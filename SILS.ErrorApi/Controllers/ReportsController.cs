@@ -19,20 +19,33 @@ namespace SILS.ErrorApi.Controllers
         // GET: api/Reports
         public List<Report> GetReports()
         {
-            return DataRepository.Report.GetAll();
+            return DataRepository.Report.GetAllWithImfomation();
         }
 
-        // GET: api/Reports/5
+        // GET: api/Reports/?bookId
         [ResponseType(typeof(Report))]
-        public IHttpActionResult GetReport(int id)
+        public IHttpActionResult GetReport(int bookId)
         {
-            Report report = DataRepository.Report.Get(id);
-            if (report == null)
+            List<Report> reports = DataRepository.Report.GetWithImformation(bookId);
+            if (reports.Count==0)
             {
                 return NotFound();
             }
 
-            return Ok(report);
+            return Ok(reports);
+        }
+        // GET: api/Reports/?codeId
+        [ResponseType(typeof(Report))]
+        public IHttpActionResult GetReport(string codeId)
+        {
+            
+            List<Report> reports = DataRepository.Report.GetWithImformation(codeId);
+            if (reports.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(reports);
         }
 
         // PUT: api/Reports/5
