@@ -22,4 +22,3 @@ C:\git\SILS\SILS.Data\obj\Debug\SILS.Data.csproj.CoreCompileInputs.cache
 C:\git\SILS\SILS.Data\obj\Debug\SILS.Data.csproj.CopyComplete
 C:\git\SILS\SILS.Data\obj\Debug\SILS.Data.dll
 C:\git\SILS\SILS.Data\obj\Debug\SILS.Data.pdb
-C:\git\SILS\SILS.Data\bin\Debug\SILS.API.dll.config
