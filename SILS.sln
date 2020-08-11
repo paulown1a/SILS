@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{3ABD69EE-2B87-41D0-B1E1-D50E93B40B9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SILS.ErrorApi", "SILS.ErrorApi\SILS.ErrorApi.csproj", "{11D41CAB-F1AF-4846-859E-94D2C3A7341B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{1ECEF8E3-10BE-44EB-A8C9-2494C18F02B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ECEF8E3-10BE-44EB-A8C9-2494C18F02B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ECEF8E3-10BE-44EB-A8C9-2494C18F02B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D41CAB-F1AF-4846-859E-94D2C3A7341B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D41CAB-F1AF-4846-859E-94D2C3A7341B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D41CAB-F1AF-4846-859E-94D2C3A7341B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D41CAB-F1AF-4846-859E-94D2C3A7341B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
