@@ -10,16 +10,22 @@
 
 ## 기능
   ### 1. 도서 검색기능 및 상세 검색기능
-  
-![Serch Form](readme/SerchForm.png)
+  #### 메인화면
+* 도서를 검색한다.
+![Search Form](readme/SearchForm.png)
+* 상세정보 검색에 체크하면 세부사항과 함께 검색할 수 있다.
+![Search Detail](readme/SearchDetail.png)
 
-![Seach Detail](readme/SeachDetail.png)
 ### 2. 도서를 보유한 도서관 목록 확인기능
 ![Book List](readme/BookList.png)
-  
+ * 목록을 더블클릭하면 책에 대한 상세정보 확인이 가능하다.
 ### 3. 상세정보를 통한 도서 정보확인 및 보유 도서관 사이트 이동
 ![Book Detail Information](readme/BookDetailInformation.png)
+* 도서관 상세정보 확인이 가능하다.
 
+
+![Library Deatail](readme/LibraryDetail.png)
+* 주소를 클릭하면 해당 도서관 사이트로 이동한다.
 ### 4. 도서 정보에 관련된 오류들을 보고하는 화면 구현
 #### -> 오류는 도서관별, 혹은 오류 유형별로 구분 가능
 
@@ -71,7 +77,7 @@
 * ![Book Cover](readme/BookCover.png)
 
 
-# Code Review
+# Code Review	
 
 * 기존 API를 통해 도서 목록을 가져 오려 했으나 두가지 결정적인 문제가 발생 하였다.
   1. 일일 500건의 API 사용제한
