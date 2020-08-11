@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 //
 namespace SILS.Data
@@ -10,6 +12,7 @@ namespace SILS.Data
         {
             SILSEntities context = new SILSEntities();
             context.Configuration.ProxyCreationEnabled = false;
+            context.Database.Log = (x) => Debug.WriteLine(x);
             return context;
         }
 

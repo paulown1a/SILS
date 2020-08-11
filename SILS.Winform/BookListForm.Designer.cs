@@ -37,7 +37,6 @@
             this.grvBooks = new DevExpress.XtraGrid.GridControl();
             this.bdsBook = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colPicture = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAuthor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPublisher = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -120,7 +119,6 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colPicture,
             this.colName,
             this.colAuthor,
             this.colPublisher,
@@ -128,18 +126,6 @@
             this.gridView1.GridControl = this.grvBooks;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // colPicture
-            // 
-            this.colPicture.Caption = "사진";
-            this.colPicture.FieldName = "Picture";
-            this.colPicture.MinWidth = 25;
-            this.colPicture.Name = "colPicture";
-            this.colPicture.OptionsColumn.AllowEdit = false;
-            this.colPicture.OptionsColumn.ReadOnly = true;
-            this.colPicture.Visible = true;
-            this.colPicture.VisibleIndex = 0;
-            this.colPicture.Width = 94;
             // 
             // colName
             // 
@@ -150,7 +136,7 @@
             this.colName.OptionsColumn.AllowEdit = false;
             this.colName.OptionsColumn.ReadOnly = true;
             this.colName.Visible = true;
-            this.colName.VisibleIndex = 1;
+            this.colName.VisibleIndex = 0;
             this.colName.Width = 94;
             // 
             // colAuthor
@@ -162,7 +148,7 @@
             this.colAuthor.OptionsColumn.AllowEdit = false;
             this.colAuthor.OptionsColumn.ReadOnly = true;
             this.colAuthor.Visible = true;
-            this.colAuthor.VisibleIndex = 2;
+            this.colAuthor.VisibleIndex = 1;
             this.colAuthor.Width = 94;
             // 
             // colPublisher
@@ -174,7 +160,7 @@
             this.colPublisher.OptionsColumn.AllowEdit = false;
             this.colPublisher.OptionsColumn.ReadOnly = true;
             this.colPublisher.Visible = true;
-            this.colPublisher.VisibleIndex = 3;
+            this.colPublisher.VisibleIndex = 2;
             this.colPublisher.Width = 94;
             // 
             // colPublicationYear
@@ -186,7 +172,7 @@
             this.colPublicationYear.OptionsColumn.AllowEdit = false;
             this.colPublicationYear.OptionsColumn.ReadOnly = true;
             this.colPublicationYear.Visible = true;
-            this.colPublicationYear.VisibleIndex = 4;
+            this.colPublicationYear.VisibleIndex = 3;
             this.colPublicationYear.Width = 94;
             // 
             // BookListForm
@@ -196,6 +182,7 @@
             this.ClientSize = new System.Drawing.Size(1098, 660);
             this.Controls.Add(this.pnSearch);
             this.Name = "BookListForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "도서 목록";
             ((System.ComponentModel.ISupportInitialize)(this.pnSearch)).EndInit();
             this.pnSearch.ResumeLayout(false);
@@ -222,7 +209,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colAuthor;
         private DevExpress.XtraGrid.Columns.GridColumn colPublicationYear;
         private DevExpress.XtraGrid.Columns.GridColumn colPublisher;
-        private DevExpress.XtraGrid.Columns.GridColumn colPicture;
         private DevExpress.XtraEditors.LabelControl lblSearchText;
     }
 }

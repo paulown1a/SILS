@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SILS.Winform
 {
-    public partial class LibraryListForm : Form
+    public partial class LibraryListForm : DevExpress.XtraEditors.XtraForm
     {
         public LibraryListForm()
         {

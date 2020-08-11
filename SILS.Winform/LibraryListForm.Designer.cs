@@ -69,9 +69,10 @@
             this.layoutControl1.Controls.Add(this.grvLibrary);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(800, 450);
+            this.layoutControl1.Size = new System.Drawing.Size(800, 540);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -81,9 +82,10 @@
             this.cbbGuGun.DisplayMember = "Name";
             this.cbbGuGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbGuGun.FormattingEnabled = true;
-            this.cbbGuGun.Location = new System.Drawing.Point(77, 42);
+            this.cbbGuGun.Location = new System.Drawing.Point(77, 44);
+            this.cbbGuGun.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbGuGun.Name = "cbbGuGun";
-            this.cbbGuGun.Size = new System.Drawing.Size(497, 23);
+            this.cbbGuGun.Size = new System.Drawing.Size(497, 26);
             this.cbbGuGun.TabIndex = 9;
             this.cbbGuGun.ValueMember = "CodeId";
             this.cbbGuGun.SelectedIndexChanged += new System.EventHandler(this.cbbGuGun_SelectedIndexChanged);
@@ -98,9 +100,10 @@
             this.cbbSiDo.DisplayMember = "Name";
             this.cbbSiDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbSiDo.FormattingEnabled = true;
-            this.cbbSiDo.Location = new System.Drawing.Point(77, 12);
+            this.cbbSiDo.Location = new System.Drawing.Point(77, 14);
+            this.cbbSiDo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbSiDo.Name = "cbbSiDo";
-            this.cbbSiDo.Size = new System.Drawing.Size(497, 23);
+            this.cbbSiDo.Size = new System.Drawing.Size(497, 26);
             this.cbbSiDo.TabIndex = 8;
             this.cbbSiDo.ValueMember = "CodeId";
             this.cbbSiDo.SelectedIndexChanged += new System.EventHandler(this.cbbSiDo_SelectedIndexChanged);
@@ -112,10 +115,12 @@
             // grvLibrary
             // 
             this.grvLibrary.DataSource = this.bdsLibrary;
-            this.grvLibrary.Location = new System.Drawing.Point(12, 107);
+            this.grvLibrary.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.grvLibrary.Location = new System.Drawing.Point(12, 128);
             this.grvLibrary.MainView = this.gridView1;
+            this.grvLibrary.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grvLibrary.Name = "grvLibrary";
-            this.grvLibrary.Size = new System.Drawing.Size(776, 331);
+            this.grvLibrary.Size = new System.Drawing.Size(776, 398);
             this.grvLibrary.TabIndex = 4;
             this.grvLibrary.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -132,6 +137,7 @@
             this.colAddress,
             this.colWebsite,
             this.colPhoneNumber});
+            this.gridView1.DetailHeight = 420;
             this.gridView1.GridControl = this.grvLibrary;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -195,15 +201,15 @@
             this.emptySpaceItem1,
             this.emptySpaceItem2});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(800, 450);
+            this.Root.Size = new System.Drawing.Size(800, 540);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.grvLibrary;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 95);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 114);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(780, 335);
+            this.layoutControlItem1.Size = new System.Drawing.Size(780, 402);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -238,16 +244,18 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 60);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(780, 35);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(780, 54);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // LibraryListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 540);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "LibraryListForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "도서관 목록";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

@@ -68,11 +68,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant.cs" />
+    <Compile Include="Extention.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\BookData\강남도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\강동도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\강서도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\개포도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\고척도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\구로도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\남산도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\도봉도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\동대문도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\동작도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\서대문도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\서울시립어린이도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\송파도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\양천도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\용산도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\정독도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\BookData\종로도서관 장서 대출목록 %282020년 06월%29.xlsx" />
+    <None Include="bin\Debug\SILS.Console.exe.config" />
+    <None Include="bin\Debug\SILS.Data.dll.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -85,7 +105,28 @@
       <Name>SILS.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\ExcelDataReader.DataSet.dll" />
+    <Content Include="bin\Debug\ExcelDataReader.DataSet.pdb" />
+    <Content Include="bin\Debug\ExcelDataReader.DataSet.xml" />
+    <Content Include="bin\Debug\ExcelDataReader.dll" />
+    <Content Include="bin\Debug\ExcelDataReader.pdb" />
+    <Content Include="bin\Debug\ExcelDataReader.xml" />
+    <Content Include="bin\Debug\MarkdownSharp.dll" />
+    <Content Include="bin\Debug\MarkdownSharp.xml" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\SILS.API.dll" />
+    <Content Include="bin\Debug\SILS.API.pdb" />
+    <Content Include="bin\Debug\SILS.Console.exe" />
+    <Content Include="bin\Debug\SILS.Console.pdb" />
+    <Content Include="bin\Debug\SILS.Data.dll" />
+    <Content Include="bin\Debug\SILS.Data.pdb" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
